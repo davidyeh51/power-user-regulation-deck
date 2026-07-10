@@ -1,635 +1,992 @@
-<!-- charset & viewport are injected by the host head skeleton when needed; kept here for standalone use -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用電大戶法規與表後儲能效益｜顧問簡報</title>
-<meta name="description" content="用電大戶再生能源義務與修法動向，以及表後儲能應用效益與商業模式。討論用工作稿。">
+<title>用電大戶法規 × 表後儲能效益｜顧問簡報</title>
+<meta name="description" content="用電大戶再生能源義務與修法動向，以及表後儲能應用效益與商業模式。客戶／業主說明用顧問簡報。">
 <style>
-  :root{
-    --ink:#10252c; --muted:#5e6f73; --paper:#f6f8f7; --panel:#ffffff; --line:#d8e0dc;
-    --green:#0f8f70; --green-soft:#dff2ec; --amber:#f2ab2e; --amber-soft:#fff0c8;
-    --coral:#e25f48; --coral-soft:#ffe3de; --teal:#177f8f; --blue:#4169a8;
-    --shadow:0 18px 45px rgba(15,45,51,0.12);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;color:var(--ink);background:var(--paper);
-    font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;overflow:hidden}
-  a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(23,127,143,.35)}
+:root{
+  --paper:#f6f8f7; --ink:#10252c; --muted:#5e6f73; --line:#d8e0dc;
+  --green:#0f8f70; --teal:#177f8f; --coral:#e25f48; --amber:#f2ab2e;
+  --green-soft:#e3f2ec; --coral-soft:#fbe9e4; --amber-soft:#fdf3dd; --teal-soft:#e2eff2;
+  --card:#ffffff; --grey-bar:#c9d4cf;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  background:var(--paper); color:var(--ink); line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+/* ---------- top bar ---------- */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:50; height:52px;
+  display:flex; align-items:center; gap:8px; padding:0 20px;
+  background:rgba(246,248,247,.92); backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .brand{font-weight:700; font-size:.88rem; letter-spacing:.05em; color:var(--teal); margin-right:10px; white-space:nowrap}
+.topbar .brand b{color:var(--ink)}
+.topnav{display:flex; gap:4px; flex:1; min-width:0; overflow-x:auto}
+.topnav a{
+  text-decoration:none; color:var(--muted); font-size:.85rem; font-weight:500;
+  padding:6px 14px; border-radius:20px; white-space:nowrap; border:1px solid transparent;
+}
+.topnav a:hover{color:var(--teal); background:var(--teal-soft)}
+.topnav a.active{color:#fff; background:var(--green); font-weight:700}
+.topbar .meta{font-size:.75rem; color:var(--muted); white-space:nowrap}
+@media(max-width:720px){.topbar .meta{display:none}}
 
-  .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
-  .slide{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;gap:18px;
-    padding:38px 60px 28px;
-    background:linear-gradient(110deg,rgba(255,255,255,.94),rgba(246,248,247,.96)),
-      radial-gradient(circle at 12% 88%,rgba(15,143,112,.08),transparent 34%),
-      radial-gradient(circle at 88% 12%,rgba(226,95,72,.07),transparent 30%);
-    opacity:0;transform:translateX(36px);pointer-events:none;
-    transition:opacity 260ms ease,transform 260ms ease}
-  .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
+/* ---------- views / slides ---------- */
+.view{display:none}
+.view.active{display:block}
+.slide{
+  display:none; min-height:100vh; padding:84px 56px 96px;
+  max-width:1280px; margin:0 auto; flex-direction:column;
+}
+.slide.active{display:flex}
+.slide-header{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:22px}
+.eyebrow{font-size:.8rem; font-weight:700; letter-spacing:.14em; color:var(--teal); text-transform:uppercase; margin-bottom:8px}
+.slide-header h1,.slide-header h2{font-size:clamp(1.5rem,3.4vw,2.35rem); line-height:1.28; font-weight:800; max-width:22em}
+.slide-header .sub{margin-top:10px; color:var(--muted); font-size:.98rem; max-width:46em}
+.flags{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+.flag{font-size:.75rem; font-weight:700; padding:5px 12px; border-radius:20px; white-space:nowrap}
+.flag.green{background:var(--green-soft); color:var(--green)}
+.flag.amber{background:var(--amber-soft); color:#b07708}
+.flag.coral{background:var(--coral-soft); color:var(--coral)}
+.flag.teal{background:var(--teal-soft); color:var(--teal)}
+.slide-body{flex:1; display:flex; flex-direction:column; gap:18px}
+.slide-foot{display:flex; justify-content:space-between; gap:16px; margin-top:26px; padding-top:14px; border-top:1px solid var(--line); font-size:.75rem; color:var(--muted)}
+.slide-foot .pageno{white-space:nowrap; font-weight:600}
 
-  .slide-header{display:flex;align-items:start;justify-content:space-between;gap:24px;
-    border-bottom:1px solid var(--line);padding-bottom:14px}
-  .eyebrow{margin:0 0 8px;color:var(--teal);font-size:15px;font-weight:700;letter-spacing:.02em}
-  h1,h2{margin:0;line-height:1.1;font-weight:800}
-  h1{max-width:1000px;font-size:clamp(38px,5.2vw,70px)}
-  h2{max-width:1000px;font-size:clamp(25px,2.9vw,40px)}
-  h3{margin:0 0 8px;font-size:20px;line-height:1.25}
-  p{margin:0;line-height:1.6;font-size:19px}
-  small{color:var(--muted);font-size:13px;line-height:1.45}
-  .meta{color:var(--muted);font-size:14px;line-height:1.5;text-align:right;white-space:nowrap}
-  .meta b{color:var(--ink)}
-  .meta .flag{display:inline-block;margin-top:4px;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700}
-  .flag.live{color:var(--green);background:var(--green-soft)}
-  .flag.warn{color:#a16a0a;background:var(--amber-soft)}
-  .flag.est{color:var(--coral);background:var(--coral-soft)}
+/* ---------- layout grids ---------- */
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch}
+.three-col{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.split-40{display:grid; grid-template-columns:40% 1fr; gap:24px; align-items:center}
+@media(max-width:980px){
+  .slide{padding:76px 20px 110px}
+  .two-col,.three-col,.split-40{grid-template-columns:1fr}
+}
 
-  .slide-body{min-height:0;display:grid;align-items:center;gap:24px}
-  .two-col{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
-  .two-col-wide{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}
-  .three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .four-col{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .split-40{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
-  .compact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-  .stack{display:grid;gap:16px;align-content:center}
+/* ---------- components ---------- */
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px}
+.metric{border-radius:14px; padding:18px 20px; border:1px solid var(--line)}
+.metric .k{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; line-height:1.1}
+.metric .t{font-size:.85rem; color:var(--muted); margin-top:6px}
+.metric.green{background:linear-gradient(145deg,var(--green-soft),#fff); border-color:#bfe2d5}
+.metric.green .k{color:var(--green)}
+.metric.amber{background:linear-gradient(145deg,var(--amber-soft),#fff); border-color:#f0dcae}
+.metric.amber .k{color:#b07708}
+.metric.coral{background:linear-gradient(145deg,var(--coral-soft),#fff); border-color:#f2c4b8}
+.metric.coral .k{color:var(--coral)}
+.big-callout{
+  background:linear-gradient(135deg,#0c4f46,#0f8f70); color:#fff;
+  border-radius:16px; padding:26px 30px;
+}
+.big-callout .label{font-size:.8rem; letter-spacing:.12em; opacity:.85; font-weight:700; margin-bottom:8px}
+.big-callout .answer{font-size:clamp(1.25rem,2.6vw,1.8rem); font-weight:800; line-height:1.4}
+.big-callout .more{margin-top:10px; font-size:.92rem; opacity:.92}
+.list{list-style:none; display:flex; flex-direction:column; gap:10px}
+.list li{position:relative; padding-left:22px; font-size:.95rem}
+.list li::before{content:""; position:absolute; left:0; top:.5em; width:9px; height:9px; border-radius:50%; background:var(--teal)}
+.table-wrap{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:auto}
+table{width:100%; border-collapse:collapse; font-size:.9rem; min-width:520px}
+th{background:#f1f5f3; text-align:left; font-weight:700; padding:11px 14px; border-bottom:1px solid var(--line); white-space:nowrap}
+td{padding:10px 14px; border-bottom:1px solid #eaf0ed; vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+.hl-row{background:var(--coral-soft)}
+.chip{display:inline-block; font-size:.74rem; font-weight:700; padding:2px 10px; border-radius:12px}
+.chip.green{background:var(--green-soft); color:var(--green)}
+.chip.amber{background:var(--amber-soft); color:#b07708}
+.chip.coral{background:var(--coral-soft); color:var(--coral)}
+.chip.teal{background:var(--teal-soft); color:var(--teal)}
+.timeline{display:flex; flex-direction:column; gap:14px}
+.step{display:flex; gap:14px; align-items:flex-start}
+.step .n{flex:0 0 34px; height:34px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center}
+.step .tx b{display:block; margin-bottom:2px}
+.step .tx{font-size:.94rem}
+.formula{background:var(--green-soft); border-left:4px solid var(--green); border-radius:0 12px 12px 0; padding:14px 18px; font-size:.98rem; font-weight:600}
+.note-src{font-size:.78rem; color:var(--muted)}
+svg text{font-family:inherit}
+.fig{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px}
+.fig .cap{font-size:.8rem; color:var(--muted); margin-top:8px; text-align:center}
 
-  .panel,.metric,.note,.table-wrap{background:var(--panel);border:1px solid var(--line);
-    border-radius:8px;box-shadow:var(--shadow)}
-  .panel{padding:24px}.note{padding:20px 22px}
-  .metric{min-height:128px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
-  .metric .label{color:var(--muted);font-size:15px;font-weight:700}
-  .metric .value{font-size:clamp(28px,3.2vw,42px);font-weight:850;line-height:1}
-  .metric .value .unit{color:var(--muted);font-size:18px;font-weight:650}
-  .metric .sub{color:var(--muted);font-size:13px;line-height:1.4}
-  .metric.green{border-color:rgba(15,143,112,.22);background:linear-gradient(180deg,#fff,var(--green-soft))}
-  .metric.amber{border-color:rgba(242,171,46,.28);background:linear-gradient(180deg,#fff,var(--amber-soft))}
-  .metric.coral{border-color:rgba(226,95,72,.28);background:linear-gradient(180deg,#fff,var(--coral-soft))}
+/* ---------- home ---------- */
+.home{max-width:1280px; margin:0 auto; padding:96px 56px 60px; min-height:100vh; display:flex; flex-direction:column}
+@media(max-width:980px){.home{padding:80px 20px 50px}}
+.home h1{font-size:clamp(1.7rem,4.4vw,2.9rem); font-weight:900; line-height:1.3; max-width:20em; margin-top:8px}
+.home .lede{color:var(--muted); margin-top:14px; max-width:44em; font-size:1.02rem}
+.part-cards{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px}
+@media(max-width:980px){.part-cards{grid-template-columns:1fr}}
+.part-card{
+  display:block; text-decoration:none; color:var(--ink);
+  background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px;
+  transition:transform .15s ease, box-shadow .15s ease; position:relative; overflow:hidden;
+}
+.part-card:hover{transform:translateY(-4px); box-shadow:0 12px 32px rgba(16,37,44,.12)}
+.part-card .pc-eyebrow{font-size:.78rem; font-weight:800; letter-spacing:.14em; color:var(--teal)}
+.part-card h2{font-size:1.35rem; font-weight:800; margin:10px 0 6px; line-height:1.35}
+.part-card p{color:var(--muted); font-size:.92rem}
+.part-card .pc-flags{margin-top:14px; display:flex; gap:8px; flex-wrap:wrap}
+.part-card .pc-go{margin-top:18px; font-weight:800; color:var(--green); font-size:.9rem}
+.part-card .pc-icon{position:absolute; right:18px; top:18px; opacity:.9}
+.toc{margin-top:26px; display:grid; grid-template-columns:1fr 1fr; gap:22px}
+@media(max-width:980px){.toc{grid-template-columns:1fr}}
+.toc .card h3{font-size:.85rem; letter-spacing:.1em; color:var(--muted); margin-bottom:10px}
+.toc a{display:flex; gap:10px; padding:7px 8px; border-radius:8px; text-decoration:none; color:var(--ink); font-size:.9rem}
+.toc a:hover{background:var(--teal-soft)}
+.toc a .no{color:var(--teal); font-weight:800; flex:0 0 1.6em; font-variant-numeric:tabular-nums}
+.home-foot{padding-top:30px; font-size:.76rem; color:var(--muted); border-top:1px solid var(--line); margin-top:40px}
 
-  .big-callout{padding:32px;color:#fff;border:0;border-radius:8px;box-shadow:var(--shadow);
-    background:linear-gradient(135deg,rgba(16,37,44,.95),rgba(23,127,143,.92)),
-      linear-gradient(90deg,rgba(15,143,112,.3),rgba(226,95,72,.18))}
-  .big-callout .eyebrow{color:#8fe8cf}
-  .big-callout p,.big-callout .muted{color:rgba(255,255,255,.82)}
-  .big-callout .answer{margin-top:12px;font-size:clamp(34px,5vw,64px);font-weight:900;line-height:1.04}
-  .big-callout .answer.sm{font-size:clamp(26px,3.4vw,42px)}
+/* ---------- bottom controls ---------- */
+.deckbar{position:fixed; left:0; right:0; bottom:0; z-index:50; pointer-events:none}
+.progress{height:5px; background:#e4eae7}
+.progress .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--green),var(--amber),var(--coral)); transition:width .25s ease}
+.ctrl{position:absolute; right:16px; bottom:16px; display:flex; align-items:center; gap:8px; pointer-events:auto}
+.ctrl .counter{font-size:.8rem; color:var(--muted); background:rgba(255,255,255,.9); border:1px solid var(--line); padding:5px 12px; border-radius:18px; font-variant-numeric:tabular-nums}
+.ctrl button{
+  width:42px; height:42px; border-radius:50%; border:1px solid var(--line); background:#fff;
+  font-size:1.15rem; color:var(--ink); cursor:pointer; box-shadow:0 3px 10px rgba(16,37,44,.1);
+}
+.ctrl button:hover{background:var(--green); color:#fff; border-color:var(--green)}
+.hint{position:absolute; left:16px; bottom:20px; font-size:.72rem; color:var(--muted); pointer-events:none}
+@media(max-width:720px){.hint{display:none}}
 
-  .muted{color:var(--muted)}.accent{color:var(--coral);font-weight:700}
-  .ok{color:var(--green);font-weight:700}.warnc{color:#a16a0a;font-weight:700}
-
-  .list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
-  .list li{position:relative;padding-left:26px;font-size:19px;line-height:1.5}
-  .list li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:10px;border-radius:50%;background:var(--teal)}
-  .list.tight li{font-size:16px;line-height:1.45}
-  .list.tight li::before{top:8px;width:8px;height:8px}
-
-  .table-wrap{overflow:hidden}
-  table{width:100%;border-collapse:collapse;font-size:16.5px;line-height:1.4;background:#fff}
-  th,td{padding:12px 16px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
-  th:first-child,td:first-child{text-align:left}
-  td:first-child{font-weight:700;color:var(--ink)}
-  th{color:var(--muted);font-size:13px;background:#f1f5f3}
-  tbody td{color:var(--ink)}
-  tr:last-child td{border-bottom:0}
-  tr.hi td{background:var(--green-soft)}
-  .pillcell{display:inline-block;padding:2px 10px;border-radius:99px;font-size:13px;font-weight:700}
-  .pc-g{color:var(--green);background:var(--green-soft)}.pc-a{color:#a16a0a;background:var(--amber-soft)}
-  .pc-c{color:var(--coral);background:var(--coral-soft)}.pc-n{color:var(--muted);background:#eef2f0}
-
-  .formula{padding:16px 20px;color:var(--ink);background:#edf6f4;border-left:5px solid var(--green);
-    border-radius:8px;font-size:18px;line-height:1.55}
-  .formula.coral{background:#fdeee9;border-left-color:var(--coral)}
-
-  .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
-  .step{padding:20px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}
-  .step .num{width:36px;height:36px;display:grid;place-items:center;margin-bottom:14px;color:#fff;
-    background:var(--teal);border-radius:50%;font-weight:800}
-
-  .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;color:var(--muted);font-size:14px}
-  .legend span{display:inline-flex;align-items:center;gap:7px}
-  .swatch{width:18px;height:4px;border-radius:99px;background:var(--teal)}
-  .swatch.green{background:var(--green)}.swatch.amber{background:var(--amber)}.swatch.coral{background:var(--coral)}
-
-  .footer{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--muted);
-    font-size:13px;border-top:1px solid var(--line);padding-top:10px}
-
-  .nav{position:fixed;right:24px;bottom:22px;display:flex;align-items:center;gap:10px;z-index:20}
-  .nav button{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);
-    border-radius:8px;color:var(--ink);background:rgba(255,255,255,.92);
-    box-shadow:0 8px 24px rgba(16,37,44,.12);cursor:pointer;font-size:21px;line-height:1}
-  .nav button:disabled{opacity:.38;cursor:default}
-  .counter{min-width:60px;padding:10px 11px;color:var(--muted);background:rgba(255,255,255,.92);
-    border:1px solid var(--line);border-radius:8px;text-align:center;font-size:13px;box-shadow:0 8px 24px rgba(16,37,44,.12)}
-  .progress{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(16,37,44,.08);z-index:21}
-  .progress span{display:block;width:0;height:100%;
-    background:linear-gradient(90deg,var(--green),var(--amber),var(--coral));transition:width 220ms ease}
-
-  .bignum{font-size:clamp(70px,9vw,120px);font-weight:900;line-height:.9}
-  .tagline{max-width:900px;margin-top:16px;color:var(--muted);font-size:clamp(19px,2.2vw,27px);line-height:1.45}
-
-  @media (max-width:980px){
-    body{overflow:auto}.deck{height:auto;overflow:visible}
-    .slide{position:relative;min-height:100vh;display:none;padding:30px 20px 76px;transform:none}
-    .slide.active{display:grid}
-    .slide-header{display:block}.meta{margin-top:10px;text-align:left;white-space:normal}
-    .two-col,.two-col-wide,.three-col,.four-col,.split-40,.timeline{grid-template-columns:1fr}
-    .compact-grid{grid-template-columns:1fr}
-    p,.list li{font-size:17px}h1{font-size:36px}h2{font-size:26px}
-    table{font-size:14px}th,td{padding:9px 11px}
-    .nav{right:14px;bottom:14px}
-  }
+/* ---------- print ---------- */
+@media print{
+  .topbar,.deckbar{display:none}
+  .view,.slide{display:block !important}
+  .slide{min-height:auto; page-break-after:always; padding:24px}
+  .home{page-break-after:always; min-height:auto}
+}
 </style>
+</head>
+<body>
 
-<main class="deck" aria-live="polite">
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+  <div class="brand">⚡ <b>用電大戶 × 表後儲能</b></div>
+  <nav class="topnav">
+    <a href="#home" data-nav="home">首頁</a>
+    <a href="#p1-1" data-nav="p1">Part 1｜法規義務</a>
+    <a href="#p2-1" data-nav="p2">Part 2｜儲能效益</a>
+  </nav>
+  <div class="meta">客戶／業主說明版 · 2026.07</div>
+</div>
 
-<!-- 1 · COVER -->
-<section class="slide active" data-title="封面">
-  <div class="slide-header">
-    <div>
-      <p class="eyebrow">STRATEGY BRIEFING · 顧問簡報</p>
-      <h1>用電大戶法規遵循<br>與表後儲能應用效益</h1>
-      <p class="tagline">一份簡報，兩個主題：先看清<b class="ok">法規義務與修法方向</b>，再掌握<b class="ok">儲能如何從止血到創造收益</b>。</p>
+<!-- ================= HOME ================= -->
+<div class="view" id="view-home">
+  <div class="home">
+    <div class="eyebrow">顧問簡報 · 各 PART 約 5 分鐘</div>
+    <h1>義務只會更硬——<br>表後儲能是把「合規成本」變「收益」的交集</h1>
+    <p class="lede">兩個部分、一條主線：Part 1 說清楚您<b>依法必須做什麼、修法後可能變什麼</b>；Part 2 說清楚儲能<b>如何先止血、再逐層疊加收益</b>。點選卡片進入，任何時候可由上方切換。</p>
+
+    <div class="part-cards">
+      <a class="part-card" href="#p1-1">
+        <svg class="pc-icon" width="52" height="52" viewBox="0 0 52 52"><rect x="10" y="6" width="32" height="40" rx="4" fill="var(--teal-soft)"/><rect x="16" y="14" width="20" height="3" rx="1.5" fill="var(--teal)"/><rect x="16" y="22" width="20" height="3" rx="1.5" fill="var(--grey-bar)"/><rect x="16" y="30" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><circle cx="38" cy="38" r="9" fill="var(--amber)"/><path d="M34 38l3 3 5-6" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pc-eyebrow">PART 1 · 法規說明</div>
+        <h2>用電大戶法規：<br>現行義務 vs. 修法動向</h2>
+        <p>契約容量 5,000kW 以上：現在的「四選一」義務，草案可能變成「發電＋儲能」都要建。</p>
+        <div class="pc-flags"><span class="flag green">現行有效</span><span class="flag amber">修法審議中</span></div>
+        <div class="pc-go">進入 Part 1（6 頁）→</div>
+      </a>
+      <a class="part-card" href="#p2-1">
+        <svg class="pc-icon" width="52" height="52" viewBox="0 0 52 52"><rect x="8" y="30" width="36" height="14" rx="3" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/><rect x="45" y="34" width="4" height="6" rx="1" fill="var(--green)"/><rect x="12" y="33" width="8" height="8" rx="1.5" fill="var(--green)"/><rect x="22" y="33" width="8" height="8" rx="1.5" fill="var(--green)"/><path d="M30 6L20 22h7l-4 14 12-18h-7l5-12z" fill="var(--amber)"/></svg>
+        <div class="pc-eyebrow">PART 2 · 效益與商模</div>
+        <h2>表後儲能：<br>應用效益與商業模式</h2>
+        <p>先賺最確定的錢（降容＋防超約），再依契約容量逐層疊加套利、交易與義務回饋。</p>
+        <div class="pc-flags"><span class="flag coral">初步試算 · 須核對電價</span></div>
+        <div class="pc-go">進入 Part 2（11 頁）→</div>
+      </a>
     </div>
-    <div class="meta">討論用工作稿<br>供業主與客戶說明使用</div>
-  </div>
-  <div class="slide-body two-col-wide">
-    <div class="big-callout">
-      <p class="eyebrow">核心訊息</p>
-      <div class="answer sm">義務讓您「非做不可」，<br>儲能讓您「做得划算」</div>
-      <p class="muted" style="margin-top:14px">法規把「做綠能」變強制，儲能則讓合規同時變成省錢與收益——兩者一併規劃，超前部署。</p>
-    </div>
-    <div class="stack">
-      <div class="panel"><h3 class="ok">PART 1 · 用電大戶法規</h3><p class="muted" style="font-size:16px">現行 10% 綠能義務、《能源管理法》修法動向、對貴公司的影響與行動。</p></div>
-      <div class="panel"><h3 class="ok">PART 2 · 表後儲能效益</h3><p class="muted" style="font-size:16px">三層效益疊加：降容防超約 → 套利／需量反應／電力交易 → 韌性收益。</p></div>
-    </div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>1</span></div>
-</section>
 
-<!-- 2 · AGENDA -->
-<section class="slide" data-title="議程">
-  <div class="slide-header">
-    <div><p class="eyebrow">議程 · Agenda</p>
-      <h2>兩個主題環環相扣：義務是「為什麼要做」，儲能是「怎麼做最划算」</h2></div>
-    <div class="meta">2 大主題<br><span class="flag live">依序閱讀</span></div>
-  </div>
-  <div class="slide-body two-col">
-    <div class="panel"><p class="eyebrow">Part 1</p><h3>用電大戶法規遵循</h3>
-      <p class="muted" style="font-size:17px">現行 10% 綠能義務、修法草案（發電＋儲能強制）、對貴公司的影響情境與行動清單。</p></div>
-    <div class="panel"><p class="eyebrow">Part 2</p><h3>表後儲能應用效益</h3>
-      <p class="muted" style="font-size:17px">三層效益疊加：先降容防超約賺最確定的錢，再逐層加上套利、需量反應、電力交易與韌性收益。</p></div>
-  </div>
-  <div class="footer"><span>每頁標題即結論，下方為佐證</span><span>2</span></div>
-</section>
-
-<!-- 3 · EXEC SUMMARY -->
-<section class="slide" data-title="結論摘要">
-  <div class="slide-header">
-    <div><p class="eyebrow">結論摘要 · Executive Summary</p>
-      <h2>法規把「做綠能」變強制，儲能則讓合規同時變成省錢與收益</h2></div>
-    <div class="meta">1 頁看完</div>
-  </div>
-  <div class="slide-body">
-    <div class="three-col">
-      <div class="panel"><h3>1 · 義務只會加重</h3><p class="muted" style="font-size:16px">5,000kW 以上現有 10% 綠能義務；修法草案傾向「發電＋儲能」強制雙軌，並新增罰則。</p></div>
-      <div class="panel"><h3>2 · 先賺最確定的錢</h3><p class="muted" style="font-size:16px">儲能「降容＋防超約」無門檻、每月穩定省錢，調降 1,000kW 年省逾 <b class="ok">220 萬</b>。</p></div>
-      <div class="panel"><h3>3 · 再逐層疊加收益</h3><p class="muted" style="font-size:16px">套利、需量反應、電力交易（VPP）、大戶義務回饋，最上層以微電網與淨尖峰加值。</p></div>
+    <div class="toc">
+      <div class="card">
+        <h3>PART 1 目錄</h3>
+        <a href="#p1-1"><span class="no">1</span>一句話結論：從「四選一」到「沒得選」</a>
+        <a href="#p1-2"><span class="no">2</span>現行義務：四條路任選，多數人避開儲能</a>
+        <a href="#p1-3"><span class="no">3</span>修法草案：「或」變「及」，替代路線消失</a>
+        <a href="#p1-4"><span class="no">4</span>一張表看懂：彈性履行 vs 強制建置</a>
+        <a href="#p1-5"><span class="no">5</span>三種情境，三種優先順序</a>
+        <a href="#p1-6"><span class="no">6</span>建議下一步</a>
+      </div>
+      <div class="card">
+        <h3>PART 2 目錄</h3>
+        <a href="#p2-1"><span class="no">1</span>一句話結論：價值來自多重效益疊加</a>
+        <a href="#p2-2"><span class="no">2</span>先賺最確定的錢：降容防超約排第一</a>
+        <a href="#p2-3"><span class="no">3</span>機制拆解：一次尖峰＝整月受罰</a>
+        <a href="#p2-4"><span class="no">4</span>降容 1,000kW，一年省逾兩百萬</a>
+        <a href="#p2-5"><span class="no">5</span>時間電價套利：批次生產價差最大</a>
+        <a href="#p2-6"><span class="no">6</span>需量反應：配合調度換電費扣減</a>
+        <a href="#p2-7"><span class="no">7</span>電力交易平台：聚合是必經之路</a>
+        <a href="#p2-8"><span class="no">8</span>用電大戶義務：儲能履行還能賺扣減</a>
+        <a href="#p2-9"><span class="no">9</span>附加效益：韌性與新收入</a>
+        <a href="#p2-10"><span class="no">10</span>我適合哪一層？</a>
+        <a href="#p2-11"><span class="no">11</span>下一步行動清單</a>
+      </div>
     </div>
-    <div class="formula">給業主的第一句話不是「你可以參與電力交易賺錢」，而是<b>「你每個月被罰的超約費、被多收的基本電費，我可以直接幫你止血」</b>——止血最容易讓人點頭，收益是後續加碼。</div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>3</span></div>
-</section>
 
-<!-- 4 · PART 1 DIVIDER -->
-<section class="slide" data-title="Part 1 用電大戶法規">
-  <div class="slide-header"><div><p class="eyebrow">Part 1</p><h2>用電大戶法規遵循</h2></div><div class="meta">現行義務 · 修法動向</div></div>
-  <div class="slide-body">
-    <div class="big-callout">
-      <p class="eyebrow">PART 1 · REGULATION</p>
-      <div class="answer">現行義務是什麼、<br>修法要往哪走、對您代表什麼</div>
-      <p class="muted" style="margin-top:16px">兩件事分屬不同法律，但方向一致：綠能義務只會加重，且從「彈性」走向「強制」。</p>
-    </div>
-  </div>
-  <div class="footer"><span>Part 1 · 用電大戶法規</span><span>4</span></div>
-</section>
-
-<!-- 5 · 現行義務 -->
-<section class="slide" data-title="現行義務">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 現行法規</p>
-      <h2>契約容量 5,000kW 以上，您現在就負有 10% 綠能義務</h2></div>
-    <div class="meta">再生能源發展條例 §12<br><span class="flag live">現行有效</span></div>
-  </div>
-  <div class="slide-body">
-    <div class="four-col">
-      <div class="metric green"><span class="label">適用對象</span><span class="value">5,000<span class="unit">kW</span></span><span class="sub">契約容量以上</span></div>
-      <div class="metric green"><span class="label">義務量</span><span class="value">10<span class="unit">%</span></span><span class="sub">前一年平均契約容量</span></div>
-      <div class="metric"><span class="label">履行方式</span><span class="value" style="font-size:34px">四選一</span><span class="sub">可多選並行</span></div>
-      <div class="metric"><span class="label">緩衝期</span><span class="value">5<span class="unit">年</span></span><span class="sub">早完成減免最高 40%</span></div>
+    <div class="home-foot">
+      ① 修法草案為立法委員提案版本（第 11021988 號），尚未三讀，內容可能修正或不通過，僅供超前部署參考。
+      ② 電價與效益數字引自來源簡報（台電吳進忠副總、永餘智能陳總），正式報價前須以台電最新公告電價表核對。
     </div>
   </div>
-  <div class="footer"><span>法源：《再生能源發展條例》§12 ＋《一定契約容量以上電力用戶應設置再生能源發電設備管理辦法》</span><span>5</span></div>
-</section>
+</div>
 
-<!-- 6 · 「或」 -->
-<section class="slide" data-title="履行選項">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 現行法規</p>
-      <h2>現行法給四條路、可挑成本最低者履行</h2></div>
-    <div class="meta"><span class="flag live">現行有效</span></div>
-  </div>
-  <div class="slide-body split-40">
-    <div class="panel" style="text-align:center">
-      <div class="bignum ok">「或」</div>
-      <p class="muted" style="margin-top:12px;font-size:16px">彈性履行——挑一個最容易執行、成本最低的方式即可達標。選儲能比例最低（義務性儲能不能參與輔助服務市場賺額外收入，此點 Part 2 有解方）。</p>
+<!-- ================= PART 1 ================= -->
+<div class="view" id="view-p1">
+
+  <!-- P1-1 -->
+  <section class="slide" id="p1-1">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 用電大戶法規 · 01</div>
+        <h1>現在必須做一件事，未來很可能要做兩件事</h1>
+        <div class="sub">契約容量 5,000kW 以上的用電大戶，目前已有法定綠能義務；立法院審議中的草案，可能讓義務從「彈性履行」變「強制建置」。</div>
+      </div>
+      <div class="flags"><span class="flag green">現行有效</span><span class="flag amber">修法審議中</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="big-callout">
+        <div class="label">一句話結論</div>
+        <div class="answer">「做法會從『四選一』變成『沒得選』——兩件事分屬不同法律，方向卻一致，建議一併規劃。」</div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 900 240" width="100%" role="img" aria-label="現行四選一與草案強制建置的對比圖">
+          <rect x="20" y="20" width="380" height="200" rx="14" fill="var(--green-soft)"/>
+          <text x="210" y="52" text-anchor="middle" font-size="17" font-weight="800" fill="var(--green)">現行《再生能源發展條例》</text>
+          <g font-size="13" fill="var(--ink)" text-anchor="middle">
+            <rect x="45" y="72" width="150" height="38" rx="8" fill="#fff" stroke="var(--line)"/><text x="120" y="96">① 自建再生能源</text>
+            <rect x="225" y="72" width="150" height="38" rx="8" fill="#fff" stroke="var(--line)"/><text x="300" y="96">② 設置儲能</text>
+            <rect x="45" y="150" width="150" height="38" rx="8" fill="#fff" stroke="var(--line)"/><text x="120" y="174">③ 購買綠電憑證</text>
+            <rect x="225" y="150" width="150" height="38" rx="8" fill="#fff" stroke="var(--line)"/><text x="300" y="174">④ 繳納代金</text>
+          </g>
+          <circle cx="210" cy="130" r="21" fill="var(--green)"/>
+          <text x="210" y="137" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">或</text>
+          <path d="M415 120h55" stroke="var(--muted)" stroke-width="3" stroke-dasharray="6 5"/>
+          <path d="M470 120l-12-8v16z" fill="var(--muted)"/>
+          <text x="442" y="104" text-anchor="middle" font-size="12" fill="var(--muted)">草案若通過</text>
+          <rect x="490" y="20" width="390" height="200" rx="14" fill="var(--coral-soft)"/>
+          <text x="685" y="52" text-anchor="middle" font-size="17" font-weight="800" fill="var(--coral)">《能源管理法》修正草案</text>
+          <g font-size="14" font-weight="700" fill="var(--ink)" text-anchor="middle">
+            <rect x="515" y="95" width="150" height="60" rx="8" fill="#fff" stroke="var(--coral)" stroke-width="2"/><text x="590" y="130">自用發電設備</text>
+            <rect x="705" y="95" width="150" height="60" rx="8" fill="#fff" stroke="var(--coral)" stroke-width="2"/><text x="780" y="130">儲能設備</text>
+          </g>
+          <circle cx="685" cy="125" r="21" fill="var(--coral)"/>
+          <text x="685" y="132" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">及</text>
+          <text x="685" y="196" text-anchor="middle" font-size="13" fill="var(--coral)" font-weight="700">兩者都要建置，草案未見替代路線</text>
+        </svg>
+      </div>
     </div>
-    <ul class="list">
-      <li>① 自建再生能源發電設備</li>
-      <li>② 設置儲能設備</li>
-      <li>③ 購買綠電及憑證（REC）</li>
-      <li>④ 繳交代金</li>
-    </ul>
-  </div>
-  <div class="footer"><span>實務上多數企業選「自建發電」或「購買憑證」</span><span>6</span></div>
-</section>
+    <footer class="slide-foot"><span>依據：《再生能源發展條例》§12｜《能源管理法》修正草案（委員提案，尚未三讀）</span><span class="pageno">1 / 6</span></footer>
+  </section>
 
-<!-- 7 · 修法草案 -->
-<section class="slide" data-title="修法草案">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 修法動向</p>
-      <h2>修法草案要把「四選一」改成<span class="accent">「發電＋儲能」強制雙軌</span></h2></div>
-    <div class="meta">能源管理法修正草案<br><span class="flag warn">審議中 · 尚未三讀</span></div>
-  </div>
-  <div class="slide-body">
-    <div class="formula">草案核心條文：契約容量達一定容量者，應於一定期限內設置一定裝置容量以上之<b class="ok">自用發電設備「及」儲能設備</b>——沒有購憑證或繳代金的替代路線。</div>
-    <div class="two-col">
-      <div class="panel"><h3>🔍 新增稽查</h3><p class="muted" style="font-size:16px">可派員或委託專業機構稽查，用戶不得規避、拒絕。</p></div>
-      <div class="panel"><h3>⚖️ 新增罰則</h3><p class="muted" style="font-size:16px">限期未改善可處 <b class="accent">15–75 萬元</b>，並得按次處罰。</p></div>
+  <!-- P1-2 -->
+  <section class="slide" id="p1-2">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 現行制度 · 02</div>
+        <h2>現行義務是「四選一」——多數企業避開儲能</h2>
+        <div class="sub">關鍵字是「或」：法律給四個選項，可挑成本最低、最容易執行的方式達成。</div>
+      </div>
+      <div class="flags"><span class="flag green">現行有效</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="three-col">
+        <div class="metric green"><div class="k">5,000<span style="font-size:.55em"> kW</span></div><div class="t">適用門檻：與台電簽訂之契約容量</div></div>
+        <div class="metric green"><div class="k">10%</div><div class="t">義務量：前一年平均契約容量的一成</div></div>
+        <div class="metric amber"><div class="k">5 年<span style="font-size:.55em">｜減免至多40%</span></div><div class="t">緩衝期：早完成享義務量減免</div></div>
+      </div>
+      <div class="two-col">
+        <div class="table-wrap">
+          <table style="min-width:0">
+            <tr><th>履行方式（擇一或並行）</th><th>企業採用度</th></tr>
+            <tr><td>① 自建再生能源發電設備</td><td><span class="chip green">主流</span></td></tr>
+            <tr><td>③ 購買綠電及憑證（REC）</td><td><span class="chip green">主流</span></td></tr>
+            <tr><td>④ 繳納代金</td><td><span class="chip amber">次之</span></td></tr>
+            <tr class="hl-row"><td>② 設置儲能設備</td><td><span class="chip coral">比例最低</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <b>為什麼儲能最少人選？</b>
+          <ul class="list" style="margin-top:12px">
+            <li><b>義務性儲能不能參與台電輔助服務市場</b>，無法賺取額外收入。</li>
+            <li>企業自然轉向自建發電或買憑證等更熟悉的路徑。</li>
+            <li>→ 但這個誘因結構，正是修法草案要改變的地方（下一頁）。</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span>草案：《能源管理法》部分條文修正草案（委員提案第 11021988 號 · 115/6/12，尚未三讀）</span><span>7</span></div>
-</section>
+    <footer class="slide-foot"><span>依據：《再生能源發展條例》§12＋一定契約容量以上電力用戶設置再生能源設備管理辦法</span><span class="pageno">2 / 6</span></footer>
+  </section>
 
-<!-- 8 · 對比表 -->
-<section class="slide" data-title="現行 vs 草案">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 現行 vs 草案</p>
-      <h2>草案取消憑證／代金替代，並新增稽查與 15–75 萬罰鍰</h2></div>
-    <div class="meta">關鍵差異</div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>比較項目</th><th>現行《再生能源發展條例》§12</th><th>《能源管理法》修法草案</th></tr></thead>
-        <tbody>
-          <tr><td>法律狀態</td><td><span class="pillcell pc-g">現行有效</span></td><td><span class="pillcell pc-a">審議中</span></td></tr>
-          <tr><td>履行邏輯</td><td>四選一（<b class="ok">彈性</b>）</td><td>發電＋儲能同時具備（<b class="accent">強制</b>）</td></tr>
-          <tr class="hi"><td>憑證／代金替代</td><td><b class="ok">可以</b></td><td><b class="accent">草案未見替代路線</b></td></tr>
-          <tr><td>稽查機制</td><td>既有查核</td><td>新增可委託第三方稽查</td></tr>
-          <tr><td>罰則</td><td>未達義務量繳代金</td><td>限期改善＋罰鍰 <b class="accent">15–75 萬</b>，按次處罰</td></tr>
-        </tbody>
-      </table>
+  <!-- P1-3 -->
+  <section class="slide" id="p1-3">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 修法動向 · 03</div>
+        <h2>草案把「或」改成「及」——替代路線消失</h2>
+        <div class="sub">《能源管理法》部分條文修正草案（委員提案第 11021988 號，115 年 6 月提案，尚未三讀）。</div>
+      </div>
+      <div class="flags"><span class="flag amber">修法審議中</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="big-callout" style="background:linear-gradient(135deg,#8a3524,#e25f48)">
+        <div class="label">草案新增條文核心邏輯</div>
+        <div class="answer">「契約容量達一定容量者，應於一定期限內設置一定裝置容量以上之<u>自用發電設備及儲能設備</u>。」</div>
+        <div class="more">沒有購買憑證或繳代金的替代路線——符合門檻的用戶，兩者都要建置。</div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <b>🔍 新增稽查機制</b>
+          <p style="margin-top:8px;font-size:.94rem">主管機關可派員或<b>委託專業機構</b>對用戶實施稽查，用戶不得規避、妨礙或拒絕。</p>
+        </div>
+        <div class="card" style="border-color:#f2c4b8">
+          <b style="color:var(--coral)">⚠ 罰則明確化</b>
+          <p style="margin-top:8px;font-size:.94rem">未依規定設置、經限期改善仍未完成：<b>罰鍰 15 萬～75 萬元，並得按次處罰</b>。</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span>方向一致：義務只會加重，且從彈性走向強制</span><span>8</span></div>
-</section>
+    <footer class="slide-foot"><span>草案內容可能於審議過程中修正或不通過，僅供超前部署參考</span><span class="pageno">3 / 6</span></footer>
+  </section>
 
-<!-- 9 · 影響情境 -->
-<section class="slide" data-title="影響情境">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 影響評估</p>
-      <h2>以憑證／代金履行者，是修法下的<span class="accent">優先規劃對象</span></h2></div>
-    <div class="meta">依現況分流</div>
-  </div>
-  <div class="slide-body three-col">
-    <div class="metric coral"><span class="label" style="color:var(--coral)">優先規劃對象</span><div><h3 style="font-size:18px">目前用「憑證／代金」履行</h3><p class="muted" style="font-size:15px">草案若通過這條路走不通，須提早評估自建發電＋儲能的場地與預算。</p></div></div>
-    <div class="metric amber"><span class="label" style="color:#a16a0a">需求提前浮現</span><div><h3 style="font-size:18px">已自建發電、未設儲能</h3><p class="muted" style="font-size:15px">儲能建置需求提前浮現，宜先盤點空間與電網條件。</p></div></div>
-    <div class="metric green"><span class="label" style="color:var(--green)">相對從容</span><div><h3 style="font-size:18px">已同時具備發電與儲能</h3><p class="muted" style="font-size:15px">留意子法公告的容量門檻與期限，確認既有設備符合未來認定。</p></div></div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>9</span></div>
-</section>
-
-<!-- 10 · 法規下一步 -->
-<section class="slide" data-title="法規下一步">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 1 · 行動</p>
-      <h2>先確認義務履行現況，再對優先對象啟動場地與財務試算</h2></div>
-    <div class="meta">法規面 Next Steps</div>
-  </div>
-  <div class="slide-body">
-    <div class="timeline">
-      <div class="step"><div class="num">1</div><h3>確認現況</h3><p class="muted" style="font-size:16px">檢核目前履行方式與義務量計算是否正確。</p></div>
-      <div class="step"><div class="num">2</div><h3>追蹤修法</h3><p class="muted" style="font-size:16px">子法尚未公布容量門檻與期限，我方持續追蹤並主動通知。</p></div>
-      <div class="step"><div class="num">3</div><h3>提前規劃</h3><p class="muted" style="font-size:16px">屬「優先規劃對象」者現在啟動場地評估與財務試算，避免草案通過後倉促應對。</p></div>
+  <!-- P1-4 -->
+  <section class="slide" id="p1-4">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 差異總覽 · 04</div>
+        <h2>一張表看懂：彈性履行 vs. 強制建置</h2>
+      </div>
+      <div class="flags"><span class="flag green">現行有效</span><span class="flag amber">修法審議中</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <tr><th style="width:22%">比較項目</th><th>現行《再生能源發展條例》§12</th><th>《能源管理法》修法草案</th></tr>
+          <tr><td><b>法律狀態</b></td><td><span class="chip green">✓ 現行有效</span></td><td><span class="chip amber">審議中，尚未生效</span></td></tr>
+          <tr><td><b>履行邏輯</b></td><td>四選一（彈性）</td><td><b style="color:var(--coral)">發電＋儲能同時具備（強制）</b></td></tr>
+          <tr><td><b>憑證／代金替代</b></td><td>可以</td><td>草案未見替代路線</td></tr>
+          <tr><td><b>稽查機制</b></td><td>既有查核</td><td>新增可委託第三方稽查</td></tr>
+          <tr><td><b>罰則</b></td><td>未達義務量繳代金</td><td>限期改善＋罰鍰 15–75 萬、按次處罰</td></tr>
+        </table>
+      </div>
+      <div class="formula">判讀重點：兩部法律「分頭並進、方向一致」——不論草案何時通過，<b>建置壓力只增不減</b>。</div>
     </div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>10</span></div>
-</section>
+    <footer class="slide-foot"><span>資料整理自現行法規與委員提案版草案條文</span><span class="pageno">4 / 6</span></footer>
+  </section>
 
-<!-- 11 · PART 2 DIVIDER -->
-<section class="slide" data-title="Part 2 表後儲能">
-  <div class="slide-header"><div><p class="eyebrow">Part 2</p><h2>表後儲能應用效益</h2></div><div class="meta">從止血到創造收益</div></div>
-  <div class="slide-body">
-    <div class="big-callout">
-      <p class="eyebrow">PART 2 · BEHIND-THE-METER BESS</p>
-      <div class="answer">先賺最確定的錢，<br>再讓多重效益疊加</div>
-      <p class="muted" style="margin-top:16px">從「降容防超約」止血，逐層疊加套利、需量反應、電力交易與韌性收益。</p>
+  <!-- P1-5 -->
+  <section class="slide" id="p1-5">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 對您的意義 · 05</div>
+        <h2>三種情境，三種優先順序——您是哪一種？</h2>
+      </div>
+      <div class="flags"><span class="flag amber">依草案方向推演</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="three-col">
+        <div class="card" style="border-top:5px solid var(--coral)">
+          <span class="chip coral">優先規劃對象</span>
+          <h3 style="margin:10px 0 8px;font-size:1.08rem">目前用「憑證／代金」履行</h3>
+          <p style="font-size:.92rem;color:var(--muted)">草案若通過，這條路將走不通。建議<b style="color:var(--ink)">提早評估自建發電＋儲能</b>的場地與預算。</p>
+        </div>
+        <div class="card" style="border-top:5px solid var(--amber)">
+          <span class="chip amber">需求將提前浮現</span>
+          <h3 style="margin:10px 0 8px;font-size:1.08rem">已自建發電、尚未設儲能</h3>
+          <p style="font-size:.92rem;color:var(--muted)">草案方向與現況有落差，<b style="color:var(--ink)">儲能建置需求會提前</b>，宜先卡位評估。</p>
+        </div>
+        <div class="card" style="border-top:5px solid var(--green)">
+          <span class="chip green">相對從容</span>
+          <h3 style="margin:10px 0 8px;font-size:1.08rem">發電與儲能兩者皆備</h3>
+          <p style="font-size:.92rem;color:var(--muted)">留意子法公告的<b style="color:var(--ink)">容量門檻與期限</b>，確認既有設備符合未來認定標準。</p>
+        </div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 900 140" width="100%" role="img" aria-label="三種情境的急迫度排序">
+          <text x="20" y="30" font-size="13" fill="var(--muted)">急迫度</text>
+          <rect x="20" y="44" width="600" height="26" rx="13" fill="var(--coral)"/>
+          <text x="34" y="62" font-size="13" fill="#fff" font-weight="700">憑證／代金族：立即啟動評估</text>
+          <rect x="20" y="78" width="420" height="26" rx="13" fill="var(--amber)"/>
+          <text x="34" y="96" font-size="13" fill="#fff" font-weight="700">有發電無儲能：一年內規劃</text>
+          <rect x="20" y="112" width="260" height="18" rx="9" fill="var(--grey-bar)"/>
+          <text x="292" y="126" font-size="12" fill="var(--muted)">兩者皆備：持續追蹤子法</text>
+        </svg>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span>Part 2 · 表後儲能效益</span><span>11</span></div>
-</section>
+    <footer class="slide-foot"><span>實際義務內容以最終公布之法規及子法為準</span><span class="pageno">5 / 6</span></footer>
+  </section>
 
-<!-- 12 · 三層總覽 -->
-<section class="slide" data-title="三層效益">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 效益架構</p>
-      <h2>表後儲能三層效益：越底層越穩無門檻，越上層收益越高有門檻</h2></div>
-    <div class="meta">全局圖</div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>層級</th><th>應用場域</th><th>效益</th><th>門檻</th></tr></thead>
-        <tbody>
-          <tr class="hi"><td>基本應用</td><td style="text-align:left">契約容量優化、時間電價套利、需量反應負載管理</td><td>節費／節電</td><td><span class="pillcell pc-g">無，人人可做</span></td></tr>
-          <tr><td>條件式應用</td><td style="text-align:left">電力交易平台（需量反應）、用電大戶再生能源義務</td><td>收益／節費</td><td><span class="pillcell pc-a">≥1MW／≥5,000kW</span></td></tr>
-          <tr><td>附加效益</td><td style="text-align:left">微電網／備援電力、備用供電容量（淨尖峰）</td><td>韌性／收益</td><td><span class="pillcell pc-n">選擇性</span></td></tr>
-        </tbody>
-      </table>
+  <!-- P1-6 -->
+  <section class="slide" id="p1-6">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 1 · 行動建議 · 06</div>
+        <h2>下一步：確認現況、追蹤草案、提前規劃</h2>
+      </div>
+      <div class="flags"><span class="flag green">可立即執行</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="timeline">
+        <div class="step"><div class="n">1</div><div class="tx"><b>現階段｜體檢</b>確認貴公司目前的義務履行方式與義務量計算是否正確。</div></div>
+        <div class="step"><div class="n">2</div><div class="tx"><b>持續｜追蹤</b>草案仍在立法院審議，子法（容量門檻與期限）尚未公布——我方持續追蹤並主動通知。</div></div>
+        <div class="step"><div class="n">3</div><div class="tx"><b>提前｜規劃</b>若屬「優先規劃對象」，現在就啟動場地評估與初步財務試算，避免草案通過後倉促應對。</div></div>
+      </div>
+      <div class="big-callout">
+        <div class="label">銜接 PART 2</div>
+        <div class="answer">合規只是底線——選對做法，儲能同時是「會賺錢的資產」。</div>
+        <div class="more">下一部分：表後儲能如何先止血、再逐層疊加收益。<a href="#p2-1" style="color:#ffd98a;font-weight:800"> 前往 Part 2 →</a></div>
+      </div>
     </div>
-    <div class="formula"><b>策略：</b>先鎖定基本應用回收成本，再逐層疊加上層收益——基本應用與條件式收益<b class="ok">可同時進行</b>。</div>
-  </div>
-  <div class="footer"><span>來源：台電 吳進忠副總、永餘智能 陳總</span><span>12</span></div>
-</section>
+    <footer class="slide-foot"><span>本頁建議不構成法律意見；義務認定以主管機關公告為準</span><span class="pageno">6 / 6</span></footer>
+  </section>
+</div>
 
-<!-- 13 · 基本應用邏輯 -->
-<section class="slide" data-title="基本應用邏輯">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 基本應用</p>
-      <h2>先賺最確定的錢——降容防超約無門檻、每月穩定入帳</h2></div>
-    <div class="meta">依效益確定性排序</div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>優先</th><th>應用</th><th>效益確定性</th><th>依賴條件</th></tr></thead>
-        <tbody>
-          <tr class="hi"><td><span class="pillcell pc-g">第一</span></td><td style="text-align:left">契約容量優化／防超約</td><td style="text-align:left"><b class="ok">最高</b>：固定成本永久下降</td><td>無</td></tr>
-          <tr><td>第二</td><td style="text-align:left">時間電價套利</td><td style="text-align:left">中：看尖離峰價差與充放循環</td><td>電價價差夠大</td></tr>
-          <tr><td>第三</td><td style="text-align:left">需量反應負載管理</td><td style="text-align:left">中：看台電調度次數</td><td>台電通知／調度</td></tr>
-        </tbody>
-      </table>
+<!-- ================= PART 2 ================= -->
+<div class="view" id="view-p2">
+
+  <!-- P2-1 -->
+  <section class="slide" id="p2-1">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 表後儲能效益 · 01</div>
+        <h1>儲能的價值不是單一功能，而是多重效益疊加</h1>
+        <div class="sub">三層應用架構：越底層越穩、無門檻；越上層收益越高、但有資格門檻。基本應用與條件式收益可同時進行。</div>
+      </div>
+      <div class="flags"><span class="flag coral">初步試算 · 須核對電價</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="split-40">
+        <div class="fig">
+          <svg viewBox="0 0 420 300" width="100%" role="img" aria-label="三層應用金字塔">
+            <polygon points="150,20 270,20 310,110 110,110" fill="var(--coral-soft)" stroke="var(--coral)" stroke-width="2"/>
+            <text x="210" y="58" text-anchor="middle" font-size="14" font-weight="800" fill="var(--coral)">附加效益</text>
+            <text x="210" y="80" text-anchor="middle" font-size="11" fill="var(--muted)">微電網備援 · 淨尖峰能力</text>
+            <polygon points="110,120 310,120 350,200 70,200" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="2"/>
+            <text x="210" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#b07708">條件式應用</text>
+            <text x="210" y="174" text-anchor="middle" font-size="11" fill="var(--muted)">交易平台 ≥1MW · 大戶義務 ≥5,000kW</text>
+            <polygon points="70,210 350,210 390,290 30,290" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="210" y="244" text-anchor="middle" font-size="15" font-weight="800" fill="var(--green)">基本應用（無門檻，人人可做）</text>
+            <text x="210" y="266" text-anchor="middle" font-size="11" fill="var(--muted)">契約容量優化 · 時間電價套利 · 需量反應</text>
+          </svg>
+          <div class="cap">↑ 收益越高、門檻越高｜↓ 越穩、立即產生現金流</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="big-callout">
+            <div class="label">策略建議</div>
+            <div class="answer">先鎖定基本應用回收成本，再逐層疊加上層收益。</div>
+          </div>
+          <div class="table-wrap">
+            <table style="min-width:0">
+              <tr><th>層級</th><th>效益</th><th>門檻</th></tr>
+              <tr><td><b style="color:var(--green)">基本應用</b></td><td>節費／節電</td><td>無</td></tr>
+              <tr><td><b style="color:#b07708">條件式應用</b></td><td>收益／節費</td><td>≥1MW／≥5,000kW</td></tr>
+              <tr><td><b style="color:var(--coral)">附加效益</b></td><td>韌性／收益</td><td>選擇性</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="formula"><b>為何排第一？</b> 它攻擊「基本電費」這筆<b class="ok">不論用多少都要繳的固定成本</b>，省下的錢可預測、可入帳(bankable)；且打中客戶「已經在流血」的超約罰單痛點，不需任何資格門檻。</div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>13</span></div>
-</section>
+    <footer class="slide-foot"><span>來源：台電《表後儲能系統之應用效益與發展趨勢》、永餘智能《如何透過儲能提升收益與契約優化》</span><span class="pageno">1 / 11</span></footer>
+  </section>
 
-<!-- 14 · 降容機制 -->
-<section class="slide" data-title="降容防超約">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 機制拆解</p>
-      <h2>「一次尖峰＝整月受罰」；關鍵 15 分鐘放電，年省逾 220 萬</h2></div>
-    <div class="meta">調降 1,000kW 經常契約<br><span class="flag est">初步試算 · 須核對電價</span></div>
-  </div>
-  <div class="slide-body two-col">
-    <ul class="list tight">
-      <li>需量以<b>每 15 分鐘</b>計費，當月最高一筆決定整月計費基礎——<b class="accent">一個瞬間高峰，整月被按高需量計費</b>。</li>
-      <li>超約罰則：超出契約容量 <b>10% 以內罰 2 倍</b>、<b class="accent">超過 10% 罰 3 倍</b>基本電費。</li>
-      <li><b class="ok">儲能兩層效益：</b>①平時削峰→調降經常契約→基本電費永久下降；②突發削峰→避免 2／3 倍罰款。</li>
-    </ul>
-    <div class="compact-grid">
-      <div class="metric green"><span class="label">特高壓 · 年節省</span><span class="value">221<span class="unit">萬</span></span><span class="sub">NT$ 2,210,700</span></div>
-      <div class="metric green"><span class="label">高壓 · 年節省</span><span class="value">229<span class="unit">萬</span></span><span class="sub">NT$ 2,286,300</span></div>
+  <!-- P2-2 -->
+  <section class="slide" id="p2-2">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 基本應用邏輯 · 02</div>
+        <h2>先賺「最確定」的錢：契約容量優化排第一</h2>
+        <div class="sub">三項基本應用不是平行選項，而是依「效益確定性」排序。</div>
+      </div>
+      <div class="flags"><span class="flag green">無資格門檻</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 214" width="100%" role="img" aria-label="三項基本應用的效益確定性排序">
+          <g font-size="14">
+            <text x="20" y="40" font-weight="800" fill="var(--ink)">第一｜契約容量優化／防超約</text>
+            <rect x="20" y="50" width="700" height="26" rx="13" fill="var(--coral)"/>
+            <text x="732" y="68" font-size="13" fill="var(--coral)" font-weight="800">確定性最高</text>
+            <text x="34" y="68" font-size="12.5" fill="#fff" font-weight="700">固定成本永久下降 · 每月穩定入帳 · 可入帳 (bankable)</text>
+            <text x="20" y="116" font-weight="700" fill="var(--muted)">第二｜時間電價套利</text>
+            <rect x="20" y="126" width="440" height="22" rx="11" fill="var(--grey-bar)"/>
+            <text x="474" y="142" font-size="12" fill="var(--muted)">中：看尖離峰價差與充放循環</text>
+            <text x="20" y="184" font-weight="700" fill="var(--muted)">第三｜需量反應負載管理</text>
+            <rect x="20" y="194" width="360" height="22" rx="11" fill="var(--grey-bar)"/>
+            <text x="394" y="210" font-size="12" fill="var(--muted)">中：看台電調度次數</text>
+          </g>
+        </svg>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <b>為什麼降容防超約排第一？</b>
+          <ul class="list" style="margin-top:10px">
+            <li>攻擊的是<b>基本電費</b>——不論當月用多少都要繳的固定成本。</li>
+            <li>打中客戶「已經在流血」的痛點：超約罰單每月看得到。</li>
+            <li>不需併入交易平台、不必達 1MW，<b>今天就能做</b>。</li>
+          </ul>
+        </div>
+        <div class="big-callout" style="background:linear-gradient(135deg,#0d3f4a,#177f8f)">
+          <div class="label">對業主的第一句話</div>
+          <div class="answer">不是「你可以參與電力交易賺錢」，而是「你每個月被罰的超約費，我可以直接幫你止血」。</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span>電價數字引自來源簡報，正式報價前須以台電最新公告電價表核對</span><span>14</span></div>
-</section>
+    <footer class="slide-foot"><span>基本應用＝無資格門檻、立即現金流，用來回收投資、降低專案風險</span><span class="pageno">2 / 11</span></footer>
+  </section>
 
-<!-- 15 · 套利 -->
-<section class="slide" data-title="時間電價套利">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 基本應用②</p>
-      <h2>離峰充、尖峰放：批次生產夏月價差最大達 9.29 元/度</h2></div>
-    <div class="meta"><span class="flag est">初步試算 · 須核對電價</span></div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>尖離峰價差（元/度）</th><th>三段式-高壓</th><th>三段式-特高壓</th><th>批次生產-高壓</th><th>批次生產-特高壓</th></tr></thead>
-        <tbody>
-          <tr><td>夏月</td><td>6.86</td><td>6.29</td><td class="hi"><b class="ok">9.29</b></td><td>8.45</td></tr>
-          <tr><td>非夏月</td><td>3.15</td><td>2.85</td><td class="hi"><b class="ok">8.91</b></td><td>8.13</td></tr>
-        </tbody>
-      </table>
+  <!-- P2-3 -->
+  <section class="slide" id="p2-3">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 機制拆解 · 03</div>
+        <h2>一次尖峰＝整月受罰：15 分鐘決定你的帳單</h2>
+        <div class="sub">台電基本電費按「契約容量」計費；當月最高的一筆 15 分鐘需量，決定整月計費基礎。</div>
+      </div>
+      <div class="flags"><span class="flag coral">超約罰 2～3 倍</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 300" width="100%" role="img" aria-label="需量曲線與儲能削峰示意圖">
+          <line x1="50" y1="20" x2="50" y2="260" stroke="var(--line)" stroke-width="2"/>
+          <line x1="50" y1="260" x2="870" y2="260" stroke="var(--line)" stroke-width="2"/>
+          <text x="20" y="30" font-size="12" fill="var(--muted)">kW</text>
+          <text x="850" y="282" font-size="12" fill="var(--muted)">時間</text>
+          <rect x="50" y="20" width="820" height="90" fill="var(--coral-soft)" opacity=".45"/>
+          <text x="66" y="44" font-size="12.5" fill="var(--coral)" font-weight="700">超約區：超出 10% 以內罰 2 倍、超過 10% 罰 3 倍基本電費</text>
+          <line x1="50" y1="110" x2="870" y2="110" stroke="var(--ink)" stroke-width="2" stroke-dasharray="8 6"/>
+          <text x="862" y="100" font-size="13" font-weight="800" fill="var(--ink)" text-anchor="end">契約容量</text>
+          <polyline points="50,225 120,205 190,215 260,185 330,160 385,130 430,60 475,130 540,175 610,160 680,200 750,190 820,215 870,220"
+            fill="none" stroke="var(--grey-bar)" stroke-width="4" stroke-linejoin="round"/>
+          <polyline points="385,130 430,60 475,130" fill="none" stroke="var(--coral)" stroke-width="5" stroke-linejoin="round"/>
+          <polyline points="385,130 415,112 445,112 475,130" fill="none" stroke="var(--green)" stroke-width="4" stroke-dasharray="7 5" stroke-linejoin="round"/>
+          <path d="M430 66 L430 100" stroke="var(--green)" stroke-width="3"/>
+          <path d="M430 106l-7-11h14z" fill="var(--green)"/>
+          <text x="446" y="88" font-size="13" font-weight="800" fill="var(--green)">儲能放電補缺口</text>
+          <path d="M385 272 h90" stroke="var(--coral)" stroke-width="3"/>
+          <text x="430" y="292" text-anchor="middle" font-size="12.5" fill="var(--coral)" font-weight="800">關鍵 15 分鐘</text>
+        </svg>
+        <div class="cap">一個瞬間高峰會讓整月按高需量計費——儲能在關鍵 15 分鐘放電，把市電需量壓回契約容量以內</div>
+      </div>
+      <div class="two-col">
+        <div class="metric green"><div class="k">效益 ①</div><div class="t"><b>平時削峰 → 調降經常契約容量</b> → 每月基本電費永久下降（結構性節費）</div></div>
+        <div class="metric coral"><div class="k">效益 ②</div><div class="t"><b>突發尖峰時削峰</b> → 避免 2 倍／3 倍超約罰款（風險止血）</div></div>
+      </div>
     </div>
-    <p class="muted" style="font-size:15px"><b>三段式完整費率（元/度，夏月）：</b>尖峰 高壓 9.39／特高壓 8.69；半尖峰 5.85／5.38；離峰 2.53／2.40。批次生產價差最大，最適合套利操作。</p>
-  </div>
-  <div class="footer"><span>來源：台電 吳進忠副總、永餘智能 陳總</span><span>15</span></div>
-</section>
+    <footer class="slide-foot"><span>需量以每 15 分鐘為一個計費單位；罰則依台電營業規章</span><span class="pageno">3 / 11</span></footer>
+  </section>
 
-<!-- 16 · 需量反應 -->
-<section class="slide" data-title="需量反應">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 基本應用③</p>
-      <h2>抑低用電換扣減：保證反應型基本電費每瓩最高扣 93 元</h2></div>
-    <div class="meta"><span class="flag est">初步試算 · 須核對電價</span></div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>項目</th><th>日選時段型</th><th>保證反應型</th></tr></thead>
-        <tbody>
-          <tr><td>時段</td><td style="text-align:left">5–10 月平日 18-20／16-20／16-22 時，抑低 2–6 小時</td><td style="text-align:left">全年平日 13-22 時，系統需要時抑低 2／3／4 小時</td></tr>
-          <tr class="hi"><td>電費扣減</td><td style="text-align:left">每度 <b class="ok">1.69–2.47 元</b>流動電費扣減</td><td style="text-align:left">基本電費每瓩最高扣 <b class="ok">93 元</b>；流動電費每度 12 元</td></tr>
-        </tbody>
-      </table>
+  <!-- P2-4 -->
+  <section class="slide" id="p2-4">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 降容效益 · 04</div>
+        <h2>調降 1,000kW 經常契約，一年省下超過兩百萬</h2>
+      </div>
+      <div class="flags"><span class="flag coral">初步試算 · 須核對電價</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="metric green" style="text-align:center;padding:34px 20px">
+          <div class="t" style="margin-bottom:6px">特高壓用戶 · 年節省</div>
+          <div class="k">NT$ 2,210,700</div>
+        </div>
+        <div class="metric green" style="text-align:center;padding:34px 20px">
+          <div class="t" style="margin-bottom:6px">高壓用戶 · 年節省</div>
+          <div class="k">NT$ 2,286,300</div>
+        </div>
+      </div>
+      <div class="formula">這筆錢的性質：<b>不是「可能賺到」的收益，而是「確定省下」的固定成本</b>——每月穩定、可預測、可入帳，是儲能專案回收投資的基石。</div>
+      <div class="card">
+        <b>疊加邏輯</b>
+        <p style="margin-top:8px;font-size:.94rem">降容節費（確定）＋ 防超約止血（保險）＋ 之後各層收益（加分）——同一套儲能設備，效益層層疊加。</p>
+      </div>
     </div>
-    <p class="muted" style="font-size:15px">節電量 = 實際抑低量(kW) × 抑低時數(小時)。另有「月選 8 日型」：每日抑低 7 小時、經常契約 25% 但不低於 50 瓩。</p>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>16</span></div>
-</section>
+    <footer class="slide-foot"><span>試算引自來源簡報；正式報價前須以台電最新公告電價表核對</span><span class="pageno">4 / 11</span></footer>
+  </section>
 
-<!-- 17 · 電力交易 -->
-<section class="slide" data-title="電力交易平台">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 條件式④A</p>
-      <h2>電力交易門檻 1MW，中小廠須靠聚合(VPP)才進得了場</h2></div>
-    <div class="meta">≥1MW 門檻</div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>商品</th><th>反應時間</th><th>持續時間</th><th>表後儲能參與途徑</th></tr></thead>
-        <tbody>
-          <tr><td>dReg</td><td>≤1 秒</td><td>連續</td><td>功率型儲能（主為表前）</td></tr>
-          <tr class="hi"><td>sReg</td><td>≤10 秒</td><td>連續</td><td><b class="ok">✅ 需量反應態樣</b></td></tr>
-          <tr><td>E-dReg</td><td>≤1 秒</td><td>連續</td><td>能量型儲能（主為表前）</td></tr>
-          <tr class="hi"><td>即時備轉</td><td>≤10 分鐘</td><td>1 小時</td><td><b class="ok">✅ 自用發電／需量反應</b></td></tr>
-          <tr class="hi"><td>補充備轉</td><td>≤30 分鐘</td><td>2 小時</td><td><b class="ok">✅ 自用發電／需量反應</b></td></tr>
-        </tbody>
-      </table>
+  <!-- P2-5 -->
+  <section class="slide" id="p2-5">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 基本應用 ② · 05</div>
+        <h2>時間電價套利：批次生產的價差最大</h2>
+        <div class="sub">離峰充電、尖峰放電自用，賺取價差。</div>
+      </div>
+      <div class="flags"><span class="flag coral">初步試算 · 須核對電價</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 280" width="100%" role="img" aria-label="夏月尖離峰價差長條圖">
+          <text x="20" y="28" font-size="14" font-weight="800" fill="var(--ink)">夏月尖離峰價差（元／度）</text>
+          <line x1="60" y1="240" x2="860" y2="240" stroke="var(--line)" stroke-width="2"/>
+          <g text-anchor="middle">
+            <rect x="100" y="100" width="110" height="140" rx="6" fill="var(--grey-bar)"/>
+            <text x="155" y="88" font-size="16" font-weight="800" fill="var(--muted)">6.86</text>
+            <text x="155" y="262" font-size="12.5" fill="var(--muted)">三段式 · 高壓</text>
+            <rect x="300" y="112" width="110" height="128" rx="6" fill="var(--grey-bar)"/>
+            <text x="355" y="100" font-size="16" font-weight="800" fill="var(--muted)">6.29</text>
+            <text x="355" y="262" font-size="12.5" fill="var(--muted)">三段式 · 特高壓</text>
+            <rect x="500" y="50" width="110" height="190" rx="6" fill="var(--coral)"/>
+            <text x="555" y="38" font-size="19" font-weight="900" fill="var(--coral)">9.29</text>
+            <text x="555" y="262" font-size="12.5" font-weight="800" fill="var(--coral)">批次生產 · 高壓</text>
+            <rect x="700" y="67" width="110" height="173" rx="6" fill="var(--grey-bar)"/>
+            <text x="755" y="55" font-size="16" font-weight="800" fill="var(--muted)">8.45</text>
+            <text x="755" y="262" font-size="12.5" fill="var(--muted)">批次生產 · 特高壓</text>
+          </g>
+        </svg>
+        <div class="cap">非夏月價差：三段式 3.15／2.85，批次生產仍達 <b style="color:var(--coral)">8.91／8.13</b> —— 批次生產全年皆有大價差</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>三段式費率（夏月，元／度）</th><th class="num">尖峰</th><th class="num">半尖峰</th><th class="num">離峰</th></tr>
+          <tr><td>高壓</td><td class="num">9.39</td><td class="num">5.85</td><td class="num">2.53</td></tr>
+          <tr><td>特高壓</td><td class="num">8.69</td><td class="num">5.38</td><td class="num">2.40</td></tr>
+        </table>
+      </div>
     </div>
-    <p class="muted" style="font-size:15px"><b>門檻：</b>交易容量 ≥1,000 瓩(1MW)、表計 0.5 級、變比器 ≤0.3%、1 張專業人員資格。<b class="ok">單一中小工廠難單獨達標 → 聚合(VPP)是必經之路。</b>（sReg 無法計算節電量）</p>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>17</span></div>
-</section>
+    <footer class="slide-foot"><span>電價數字引自來源簡報；以台電最新公告電價表為準</span><span class="pageno">5 / 11</span></footer>
+  </section>
 
-<!-- 18 · 大戶義務儲能 -->
-<section class="slide" data-title="大戶義務-儲能履行">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 條件式④B</p>
-      <h2>以儲能履行大戶義務：全年放電 ≥401 小時最高回饋 10 元/度</h2></div>
-    <div class="meta">經常契約 ≥5,000 瓩<br><span class="flag est">初步試算 · 須核對電價</span></div>
-  </div>
-  <div class="slide-body two-col">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>全年累積放電時數</th><th>義務時數型</th><th>累進回饋型</th></tr></thead>
-        <tbody>
-          <tr><td>≤150 小時</td><td>0.00</td><td>1.00</td></tr>
-          <tr><td>151–400 小時</td><td>0.00</td><td>2.00</td></tr>
-          <tr class="hi"><td>≥401 小時</td><td><b class="ok">10.00</b></td><td>5.00</td></tr>
-        </tbody>
-      </table>
+  <!-- P2-6 -->
+  <section class="slide" id="p2-6">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 基本應用 ③ · 06</div>
+        <h2>需量反應：配合台電調度，換取電費扣減</h2>
+        <div class="sub">事先規劃或臨時調整用電；節電量 ＝ 實際抑低量(kW) × 抑低時數(小時)。</div>
+      </div>
+      <div class="flags"><span class="flag green">現行措施</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <tr><th style="width:18%">項目</th><th>日選時段型</th><th>保證反應型</th></tr>
+          <tr><td><b>時段</b></td><td>5–10 月，平日 18-20／16-20／16-22 時，抑低 2–6 小時</td><td>全年平日 13-22 時，系統需要時抑低 2／3／4 小時</td></tr>
+          <tr><td><b>電費扣減</b></td><td>每度 <b>1.69–2.47 元</b>流動電費扣減</td><td>基本電費每瓩最高扣 <b>93 元</b>；流動電費每度 <b>12 元</b></td></tr>
+        </table>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <b>另有「月選 8 日型」（計畫性減少用電）</b>
+          <p style="margin-top:8px;font-size:.94rem">每日抑低 7 小時，抑低量為經常契約 25%（不低於 50 瓩）。</p>
+        </div>
+        <div class="card" style="background:var(--teal-soft)">
+          <b>儲能的角色</b>
+          <p style="margin-top:8px;font-size:.94rem">台電調度時由儲能放電頂替市電，<b>產線不必真的停</b>——扣減照領、生產照跑。</p>
+        </div>
+      </div>
     </div>
-    <ul class="list tight">
-      <li>義務裝置容量 = 前一年平均契約 × <b class="ok">10%</b></li>
-      <li>儲能容量 = 義務裝置 × 最小供電時數 <b class="ok">2 小時</b></li>
-      <li>自通知當年 1/1 起 <b class="ok">5 年內</b>履行（設綠能／購憑證／設儲能，可擇一或混合）</li>
-      <li>認證擇一：UL 9540／9540FE／IEC 62933-5-2／CNS 62933-5-2</li>
-    </ul>
-  </div>
-  <div class="footer"><span>電費扣減（元/度）· 須以台電最新公告核對</span><span>18</span></div>
-</section>
+    <footer class="slide-foot"><span>方案細節依台電需量反應負載管理措施公告</span><span class="pageno">6 / 11</span></footer>
+  </section>
 
-<!-- 19 · 附加效益 -->
-<section class="slide" data-title="附加效益">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 附加效益⑤⑥</p>
-      <h2>最上層加值：微電網撐韌性、淨尖峰容量創造新收入</h2></div>
-    <div class="meta">選擇性</div>
-  </div>
-  <div class="slide-body two-col">
-    <div class="panel"><h3>⑤ 微電網／備援電力</h3><p class="muted" style="font-size:16px">減少停電或電壓瞬降的產線停產損失；台電供電不穩時 EMS 啟動<b class="ok">孤島運轉</b>，鞏固廠區基本用電；提高光電自用比例，自發自用可申請 <b>T-REC</b> 憑證外售。</p></div>
-    <div class="panel"><h3>⑥ 備用供電容量（淨尖峰）</h3><p class="muted" style="font-size:16px">販售淨尖峰能力予發電業／售電業。因子 =（執行時間 ÷ 4 小時）× 前一年執行率。<br>範例：100MW 即時備轉、執行率 120%（以 100% 計）→ 因子 25% → 淨尖峰 <b class="ok">25MW</b>。</p></div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>19</span></div>
-</section>
-
-<!-- 20 · 對號入座 -->
-<section class="slide" data-title="我適合哪一層">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 對號入座</p>
-      <h2>依契約容量對號入座：門檻決定你能疊到第幾層</h2></div>
-    <div class="meta">依契約容量</div>
-  </div>
-  <div class="slide-body">
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>契約容量</th><th>適用重點</th></tr></thead>
-        <tbody>
-          <tr><td>&lt; 1,000kW（單點）</td><td style="text-align:left">無法單獨參與電力交易平台，走基本應用或加入聚合</td></tr>
-          <tr><td>800–10,000kW</td><td style="text-align:left">能源用戶年度節電率目標 <b>1%</b>（節電義務）＋ 全部基本應用</td></tr>
-          <tr class="hi"><td>≥ 5,000kW</td><td style="text-align:left">用電大戶再生能源義務（<b class="ok">必須履行</b>）＋ 高套利空間</td></tr>
-          <tr><td>&gt; 10,000kW</td><td style="text-align:left">能源用戶年度節電率目標 <b>1.5%</b></td></tr>
-        </tbody>
-      </table>
+  <!-- P2-7 -->
+  <section class="slide" id="p2-7">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 條件式應用 ④A · 07</div>
+        <h2>電力交易平台：1MW 門檻，聚合(VPP)是必經之路</h2>
+        <div class="sub">以「需量反應」態樣參與、賺取業外收入，並可納入年度節電量。</div>
+      </div>
+      <div class="flags"><span class="flag amber">門檻 ≥1MW</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="table-wrap">
+          <table style="min-width:0">
+            <tr><th>商品</th><th>反應時間</th><th>表後儲能參與</th></tr>
+            <tr><td>dReg</td><td>≤1 秒</td><td style="color:var(--muted)">主為表前</td></tr>
+            <tr class="hl-row"><td><b>sReg</b></td><td>≤10 秒</td><td><span class="chip coral">✓ 需量反應態樣</span></td></tr>
+            <tr><td>E-dReg</td><td>≤1 秒</td><td style="color:var(--muted)">主為表前</td></tr>
+            <tr class="hl-row"><td><b>即時備轉</b></td><td>≤10 分鐘</td><td><span class="chip coral">✓ 自用發電／需量反應</span></td></tr>
+            <tr class="hl-row"><td><b>補充備轉</b></td><td>≤30 分鐘</td><td><span class="chip coral">✓ 自用發電／需量反應</span></td></tr>
+          </table>
+        </div>
+        <div class="fig">
+          <svg viewBox="0 0 420 260" width="100%" role="img" aria-label="VPP 聚合示意圖">
+            <g font-size="12" text-anchor="middle">
+              <rect x="20" y="20" width="110" height="46" rx="8" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+              <text x="75" y="40" font-weight="700">工廠 A</text><text x="75" y="56" fill="var(--muted)">400 kW</text>
+              <rect x="20" y="100" width="110" height="46" rx="8" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+              <text x="75" y="120" font-weight="700">工廠 B</text><text x="75" y="136" fill="var(--muted)">350 kW</text>
+              <rect x="20" y="180" width="110" height="46" rx="8" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+              <text x="75" y="200" font-weight="700">工廠 C</text><text x="75" y="216" fill="var(--muted)">300 kW</text>
+              <path d="M132 43 C 190 43 190 110 235 118 M132 123 L232 123 M132 203 C 190 203 190 136 235 128" stroke="var(--teal)" stroke-width="2.5" fill="none"/>
+              <rect x="238" y="95" width="100" height="56" rx="10" fill="var(--teal)"/>
+              <text x="288" y="118" fill="#fff" font-weight="800" font-size="13">聚合商</text>
+              <text x="288" y="136" fill="#fff" font-size="11.5">VPP ≥ 1MW</text>
+              <path d="M340 123 h38" stroke="var(--green)" stroke-width="3"/>
+              <path d="M382 123l-10-7v14z" fill="var(--green)"/>
+              <rect x="384" y="97" width="32" height="52" rx="6" fill="var(--green-soft)" stroke="var(--green)"/>
+              <text x="400" y="119" fill="var(--green)" font-size="10.5" font-weight="800">交易</text>
+              <text x="400" y="134" fill="var(--green)" font-size="10.5" font-weight="800">平台</text>
+            </g>
+          </svg>
+          <div class="cap">單一中小工廠難以達標 → 聚合跨過 1MW 門檻</div>
+        </div>
+      </div>
+      <div class="card">
+        <b>參與門檻</b>：交易容量 ≥1,000 瓩(1MW) · 表計 0.5 級 · 變比器誤差 ≤0.3% · 專業人員資格 1 張。<span class="note-src">sReg 無法計算節電量；計畫性減少用電用戶可同時參與輔助服務。</span>
+      </div>
     </div>
-    <p class="muted" style="font-size:15px">注意：用電大戶「再生能源義務（裝置 10%）」與能源用戶「節電率目標（1%／1.5%）」是<b class="accent">兩套不同制度</b>，勿混淆。</p>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>20</span></div>
-</section>
+    <footer class="slide-foot"><span>來源：台電電力交易平台商品規格</span><span class="pageno">7 / 11</span></footer>
+  </section>
 
-<!-- 21 · 結論 -->
-<section class="slide" data-title="結論">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 結論</p>
-      <h2>價值來自多重效益疊加，不是單一功能</h2></div>
-    <div class="meta">政策順風</div>
-  </div>
-  <div class="slide-body">
-    <div class="big-callout">
-      <p class="eyebrow">疊加邏輯</p>
-      <p style="font-size:22px;line-height:1.55;margin-top:6px"><b>先</b>以「降容防超約」賺最確定的錢、回收成本 → <b>再</b>視契約容量疊加「套利／需量反應／電力交易／大戶義務」收益 → <b>最上層</b>以「微電網／備用容量」加值韌性與新收入。</p>
+  <!-- P2-8 -->
+  <section class="slide" id="p2-8">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 條件式應用 ④B · 08</div>
+        <h2>用電大戶義務：用儲能履行，還能賺電費扣減</h2>
+        <div class="sub">適用經常契約 ≥5,000 瓩用戶（呼應 Part 1 的法定義務）。</div>
+      </div>
+      <div class="flags"><span class="flag green">現行有效</span><span class="flag teal">連動 Part 1</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="formula">儲能設置容量 ＝ 前一年度平均契約容量 × <b>10%</b>（義務裝置容量）× 最小供電時數 <b>2 小時</b>｜自通知當年 1/1 起 <b>5 年內</b>履行</div>
+      <div class="two-col">
+        <div class="table-wrap">
+          <table style="min-width:0">
+            <tr><th>全年累積放電時數</th><th class="num">義務時數型</th><th class="num">累進回饋型</th></tr>
+            <tr><td>≤150 小時</td><td class="num">0.00</td><td class="num">1.00</td></tr>
+            <tr><td>151–400 小時</td><td class="num">0.00</td><td class="num">2.00</td></tr>
+            <tr class="hl-row"><td><b>≥401 小時</b></td><td class="num"><b style="color:var(--coral)">10.00</b></td><td class="num"><b>5.00</b></td></tr>
+          </table>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card">
+            <b>電費扣減（元／度）怎麼看？</b>
+            <p style="margin-top:8px;font-size:.93rem">放好放滿（≥401 小時）才有最高扣減——<b>義務儲能不該閒置，要當資產操作</b>。</p>
+          </div>
+          <div class="card" style="background:var(--green-soft)">
+            <b>儲能認證（擇一）</b>
+            <p style="margin-top:8px;font-size:.9rem">UL 9540 ｜ UL 9540FE ｜ IEC 62933-5-2 ｜ CNS 62933-5-2</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="two-col">
-      <div class="panel"><h3>🏭 政策順風</h3><p class="muted" style="font-size:16px">經濟部能源署針對工業用戶<b class="ok">預計推出使用國產電池的補助計畫</b>（鼓勵在地化）。</p></div>
-      <div class="panel"><h3>📈 市場成熟</h3><p class="muted" style="font-size:16px">表後儲能得以需量反應參與輔助服務，用戶可自選電價方案並搭配綠電轉供。</p></div>
+    <footer class="slide-foot"><span>履行方式可擇一或混合（設再生能源／購憑證／設儲能）；扣減值引自來源簡報</span><span class="pageno">8 / 11</span></footer>
+  </section>
+
+  <!-- P2-9 -->
+  <section class="slide" id="p2-9">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 附加效益 ⑤⑥ · 09</div>
+        <h2>附加效益：停電不停產，容量還能賣錢</h2>
+      </div>
+      <div class="flags"><span class="flag amber">選擇性</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="card" style="border-top:5px solid var(--teal)">
+          <b style="font-size:1.05rem">⑤ 微電網／備援電力／能源優化</b>
+          <ul class="list" style="margin-top:12px">
+            <li>減少停電或電壓瞬降造成的<b>產線停產損失</b>（用電韌性）。</li>
+            <li>供電不穩時 EMS 啟動<b>孤島運轉</b>，鞏固廠區基本用電。</li>
+            <li>提高光電自用比例；自發自用可申請 <b>T-REC 憑證外售</b>。</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top:5px solid var(--green)">
+          <b style="font-size:1.05rem">⑥ 備用供電容量（淨尖峰能力）</b>
+          <p style="margin-top:10px;font-size:.93rem">販售淨尖峰能力予發電業／售電業。</p>
+          <div class="formula" style="margin-top:12px;font-size:.9rem">淨尖峰能力 ＝ 市場參與容量 × 因子<br>因子 ＝（執行時間 ÷ 4小時）× 前一年平均執行率</div>
+          <div class="metric green" style="margin-top:12px">
+            <div class="k">100MW → 25MW</div>
+            <div class="t">範例：即時備轉、執行率 120%（以 100% 計）→ 因子 25%</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>21</span></div>
-</section>
+    <footer class="slide-foot"><span>執行率逾 100% 以 100% 計</span><span class="pageno">9 / 11</span></footer>
+  </section>
 
-<!-- 22 · 行動清單 -->
-<section class="slide" data-title="行動清單">
-  <div class="slide-header">
-    <div><p class="eyebrow">Part 2 · 行動</p>
-      <h2>下一步：先取得用電曲線，試算「降容防超約」年效益</h2></div>
-    <div class="meta">Next Steps</div>
-  </div>
-  <div class="slide-body">
-    <ul class="list">
-      <li><span class="pillcell pc-c">P0</span>&nbsp; 取得客戶最近一年<b>用電曲線 + 契約容量</b>，試算「降容 + 防超約」年效益。</li>
-      <li><span class="pillcell pc-c">P0</span>&nbsp; 以台電最新公告電價表<b>核對本簡報所有費率</b>。</li>
-      <li><span class="pillcell pc-a">P1</span>&nbsp; 判斷客戶是否 ≥5,000kW（大戶義務）或 ≥1MW（電力交易可行性）。</li>
-      <li><span class="pillcell pc-n">P2</span>&nbsp; 評估是否需聚合(VPP)以跨越 1MW 門檻。</li>
-      <li><span class="pillcell pc-n">P2</span>&nbsp; 確認儲能設備認證（UL 9540／62933）是否齊備。</li>
-    </ul>
-  </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>22</span></div>
-</section>
-
-<!-- 23 · 免責 + 來源 -->
-<section class="slide" data-title="免責與來源">
-  <div class="slide-header">
-    <div><p class="eyebrow">合規先做對 · 效益早佈局</p>
-      <h2>義務讓您「非做不可」，儲能讓您「做得划算」</h2></div>
-    <div class="meta">歡迎聯繫評估</div>
-  </div>
-  <div class="slide-body">
-    <div class="note">
-      <p class="eyebrow" style="color:var(--coral)">免責聲明 · 資料來源</p>
-      <p class="muted" style="font-size:15px;line-height:1.75;margin-top:6px">
-        ① 修法草案為立法委員提案版本，尚未三讀，內容可能修正或不通過，僅供超前部署參考，實際義務以最終公布之法規及子法為準。
-        ② 電價與效益數字引自來源簡報，正式報價前須以台電最新公告電價表核對。<br>
-        <b>來源</b>：台電 吳進忠副總《表後儲能系統之應用效益與發展趨勢》、永餘智能 陳總《如何透過儲能提升收益與契約優化》。
-      </p>
+  <!-- P2-10 -->
+  <section class="slide" id="p2-10">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 對號入座 · 10</div>
+        <h2>我適合哪一層？用契約容量對號入座</h2>
+      </div>
+      <div class="flags"><span class="flag green">判斷基準</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 250" width="100%" role="img" aria-label="契約容量分級對應適用重點">
+          <g font-size="13.5">
+            <rect x="20" y="20" width="215" height="210" rx="12" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="20" y="20" width="215" height="46" rx="12" fill="var(--grey-bar)"/>
+            <text x="127" y="49" text-anchor="middle" font-weight="800">&lt; 1,000 kW</text>
+            <text x="36" y="96" font-size="12.5">無法單獨參與交易平台</text>
+            <text x="36" y="122" font-size="12.5" font-weight="700" fill="var(--green)">→ 基本應用</text>
+            <text x="36" y="148" font-size="12.5" font-weight="700" fill="var(--teal)">→ 或加入聚合(VPP)</text>
+            <rect x="243" y="20" width="215" height="210" rx="12" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="243" y="20" width="215" height="46" rx="12" fill="var(--teal-soft)"/>
+            <text x="350" y="49" text-anchor="middle" font-weight="800" fill="var(--teal)">800–10,000 kW</text>
+            <text x="259" y="96" font-size="12.5">能源用戶節電義務</text>
+            <text x="259" y="122" font-size="12.5" font-weight="700" fill="var(--teal)">年度節電率目標 1%</text>
+            <text x="259" y="148" font-size="12.5" font-weight="700" fill="var(--green)">＋ 全部基本應用</text>
+            <rect x="466" y="20" width="215" height="210" rx="12" fill="#fff" stroke="var(--coral)" stroke-width="2.5"/>
+            <rect x="466" y="20" width="215" height="46" rx="12" fill="var(--coral)"/>
+            <text x="573" y="49" text-anchor="middle" font-weight="800" fill="#fff">≥ 5,000 kW</text>
+            <text x="482" y="96" font-size="12.5" font-weight="700" fill="var(--coral)">用電大戶再生能源義務</text>
+            <text x="482" y="120" font-size="12.5">（必須履行 · 見 Part 1）</text>
+            <text x="482" y="148" font-size="12.5" font-weight="700" fill="var(--green)">＋ 高套利空間</text>
+            <rect x="689" y="20" width="191" height="210" rx="12" fill="#fff" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="689" y="20" width="191" height="46" rx="12" fill="var(--amber-soft)"/>
+            <text x="784" y="49" text-anchor="middle" font-weight="800" fill="#b07708">&gt; 10,000 kW</text>
+            <text x="705" y="96" font-size="12.5">能源用戶節電義務</text>
+            <text x="705" y="122" font-size="12.5" font-weight="700" fill="#b07708">年度節電率目標 1.5%</text>
+          </g>
+        </svg>
+      </div>
+      <div class="card" style="border-left:4px solid var(--amber)">
+        <b>⚠ 勿混淆兩套制度</b>：用電大戶「再生能源義務（裝置 10%）」與能源用戶「節電率目標（1%／1.5%）」是<b>不同法源、不同義務</b>，可能同時適用。
+      </div>
     </div>
+    <footer class="slide-foot"><span>依契約容量初判；實際適用性需個案確認</span><span class="pageno">10 / 11</span></footer>
+  </section>
+
+  <!-- P2-11 -->
+  <section class="slide" id="p2-11">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 2 · 行動清單 · 11</div>
+        <h2>下一步：先拿用電曲線，試算降容效益</h2>
+      </div>
+      <div class="flags"><span class="flag green">可立即執行</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="table-wrap">
+        <table>
+          <tr><th style="width:12%">優先</th><th>事項</th></tr>
+          <tr class="hl-row"><td><span class="chip coral">P0</span></td><td>取得<b>最近一年用電曲線＋契約容量</b>，試算「降容＋防超約」年效益</td></tr>
+          <tr class="hl-row"><td><span class="chip coral">P0</span></td><td>以台電<b>最新公告電價表</b>核對本簡報所有費率</td></tr>
+          <tr><td><span class="chip amber">P1</span></td><td>判斷是否 ≥5,000kW（大戶義務）或 ≥1MW（交易平台可行性）</td></tr>
+          <tr><td><span class="chip teal">P2</span></td><td>評估是否需聚合(VPP)跨越 1MW 門檻</td></tr>
+          <tr><td><span class="chip teal">P2</span></td><td>確認儲能設備認證（UL 9540／62933）是否齊備</td></tr>
+        </table>
+      </div>
+      <div class="two-col">
+        <div class="card" style="background:var(--amber-soft)">
+          <b>政策順風</b>
+          <p style="margin-top:8px;font-size:.93rem">能源署持續釋出利多：針對工業用戶<b>預計推出國產電池補助計畫</b>；表後儲能可以需量反應參與輔助服務市場。</p>
+        </div>
+        <div class="big-callout">
+          <div class="label">全簡報總結</div>
+          <div class="answer">先以「降容防超約」賺最確定的錢，再逐層疊加收益，最上層以韌性與新收入加值。</div>
+          <div class="more"><a href="#home" style="color:#ffd98a;font-weight:800">回首頁 ↺</a>　<a href="#p1-1" style="color:#ffd98a;font-weight:800">重看 Part 1 →</a></div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>來源：台電 吳進忠副總、永餘智能 陳總簡報；電價以台電最新公告為準</span><span class="pageno">11 / 11</span></footer>
+  </section>
+</div>
+
+<!-- ================= DECK CONTROLS ================= -->
+<div class="deckbar" id="deckbar">
+  <div class="progress"><div class="fill" id="progressFill"></div></div>
+  <div class="hint">← → 切頁 · Home 回首頁 · F 全螢幕</div>
+  <div class="ctrl">
+    <span class="counter" id="counter">1 / 6</span>
+    <button id="btnPrev" aria-label="上一頁">‹</button>
+    <button id="btnNext" aria-label="下一頁">›</button>
   </div>
-  <div class="footer"><span>Confidential working deck · 討論用工作稿</span><span>23</span></div>
-</section>
-
-</main>
-
-<div class="progress"><span id="progress"></span></div>
-<div class="nav">
-  <button id="prev" aria-label="上一頁">‹</button>
-  <div class="counter" id="counter">1 / 23</div>
-  <button id="next" aria-label="下一頁">›</button>
 </div>
 
 <script>
-  const slides=Array.from(document.querySelectorAll(".slide"));
-  const prev=document.getElementById("prev"),next=document.getElementById("next");
-  const counter=document.getElementById("counter"),progress=document.getElementById("progress");
-  let index=0;
-  function showSlide(n){
-    index=Math.max(0,Math.min(slides.length-1,n));
-    slides.forEach((s,i)=>s.classList.toggle("active",i===index));
-    prev.disabled=index===0;next.disabled=index===slides.length-1;
-    counter.textContent=`${index+1} / ${slides.length}`;
-    progress.style.width=`${((index+1)/slides.length)*100}%`;
-    document.title=`${slides[index].dataset.title}｜用電大戶法規與表後儲能`;
+(function(){
+  var parts = {
+    p1: Array.prototype.slice.call(document.querySelectorAll('#view-p1 .slide')),
+    p2: Array.prototype.slice.call(document.querySelectorAll('#view-p2 .slide'))
+  };
+  var state = { view:'home', idx:0 };
+  var last = { p1:0, p2:0 };
+
+  var views = { home:document.getElementById('view-home'),
+                p1:document.getElementById('view-p1'),
+                p2:document.getElementById('view-p2') };
+  var deckbar = document.getElementById('deckbar');
+  var fill = document.getElementById('progressFill');
+  var counter = document.getElementById('counter');
+
+  function render(){
+    Object.keys(views).forEach(function(k){ views[k].classList.toggle('active', k===state.view); });
+    var navs = document.querySelectorAll('[data-nav]');
+    for(var i=0;i<navs.length;i++){
+      navs[i].classList.toggle('active', navs[i].getAttribute('data-nav')===state.view);
+    }
+    if(state.view==='home'){
+      deckbar.style.display='none';
+    } else {
+      deckbar.style.display='block';
+      var slides = parts[state.view];
+      slides.forEach(function(s,i){ s.classList.toggle('active', i===state.idx); });
+      counter.textContent = (state.idx+1)+' / '+slides.length;
+      fill.style.width = ((state.idx+1)/slides.length*100)+'%';
+      last[state.view]=state.idx;
+    }
+    window.scrollTo(0,0);
   }
-  prev.addEventListener("click",()=>showSlide(index-1));
-  next.addEventListener("click",()=>showSlide(index+1));
-  document.addEventListener("keydown",e=>{
-    if(e.key==="ArrowLeft"||e.key==="PageUp")showSlide(index-1);
-    if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" ")showSlide(index+1);
-    if(e.key==="Home")showSlide(0);
-    if(e.key==="End")showSlide(slides.length-1);
-    if(e.key==="f"||e.key==="F"){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+
+  function goHash(hash){
+    hash = (hash||'#home').replace('#','');
+    if(hash==='home'||hash===''){ state.view='home'; render(); return; }
+    var m = hash.match(/^(p1|p2)-(\d+)$/);
+    if(m){
+      var v=m[1], i=parseInt(m[2],10)-1;
+      if(parts[v][i]){ state.view=v; state.idx=i; render(); return; }
+    }
+    if(hash==='p1'||hash==='p2'){ state.view=hash; state.idx=last[hash]; render(); return; }
+    state.view='home'; render();
+  }
+
+  function setHash(){
+    var h = state.view==='home' ? '#home' : '#'+state.view+'-'+(state.idx+1);
+    if(location.hash!==h) history.replaceState(null,'',h);
+  }
+
+  function move(d){
+    if(state.view==='home'){ if(d>0){ state.view='p1'; state.idx=0; render(); setHash(); } return; }
+    var slides = parts[state.view];
+    var n = state.idx + d;
+    if(n<0){
+      if(state.view==='p2'){ state.view='p1'; state.idx=parts.p1.length-1; }
+      else { state.view='home'; }
+    } else if(n>=slides.length){
+      if(state.view==='p1'){ state.view='p2'; state.idx=0; }
+      else { state.view='home'; }
+    } else { state.idx=n; }
+    render(); setHash();
+  }
+
+  document.getElementById('btnPrev').addEventListener('click',function(){move(-1)});
+  document.getElementById('btnNext').addEventListener('click',function(){move(1)});
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); move(1); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); move(-1); }
+    else if(e.key==='Home'){ e.preventDefault(); state.view='home'; render(); setHash(); }
+    else if(e.key==='End'&&state.view!=='home'){ e.preventDefault(); state.idx=parts[state.view].length-1; render(); setHash(); }
+    else if(e.key==='f'||e.key==='F'){
+      if(document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    }
   });
-  // 觸控滑動（手機）
-  let sx=0;
-  document.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});
-  document.addEventListener("touchend",e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)showSlide(index+(d<0?1:-1));},{passive:true});
-  showSlide(0);
+
+  var tx=null;
+  document.addEventListener('touchstart',function(e){ tx=e.changedTouches[0].clientX; },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(tx===null) return;
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>60) move(dx<0?1:-1);
+    tx=null;
+  },{passive:true});
+
+  window.addEventListener('hashchange',function(){ goHash(location.hash); });
+  goHash(location.hash);
+})();
 </script>
+</body>
+</html>
