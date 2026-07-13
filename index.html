@@ -167,8 +167,8 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
 .inrow .lab{font-size:.85rem; color:var(--muted); white-space:nowrap}
 .q .fig{margin-top:12px}
 .formbar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:rgba(255,255,255,.97); border-top:1px solid var(--line); padding:12px 20px; display:none; align-items:center; gap:12px; justify-content:space-between; backdrop-filter:blur(6px); flex-wrap:wrap}
-#view-p3.active .formbar{display:flex}
-#view-p3.active.done .formbar{display:none}
+#view-appendix.active .formbar{display:flex}
+#view-appendix.active.done .formbar{display:none}
 .formbar .fcount{font-size:.85rem; color:var(--muted)}
 .formbar .fbtns{display:flex; gap:10px; flex-wrap:wrap}
 .btn{border:none; border-radius:24px; padding:11px 22px; font:inherit; font-weight:800; cursor:pointer; font-size:.92rem}
@@ -178,8 +178,8 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
 .btn.ghost{background:#fff; border:1px solid var(--line); color:var(--ink)}
 .btn.ghost:hover{border-color:var(--green); color:var(--green)}
 .form-done{display:none; text-align:center; padding:70px 20px}
-#view-p3.done .form-done{display:block}
-#view-p3.done #essFormArea{display:none}
+#view-appendix.done .form-done{display:block}
+#view-appendix.done #essFormArea{display:none}
 .form-done .big{font-size:3.2rem}
 .form-done h2{margin:14px 0 8px}
 .form-done p{color:var(--muted); font-size:.95rem}
@@ -221,7 +221,8 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
     <a href="#home" data-nav="home">首頁</a>
     <a href="#p1-1" data-nav="p1">Part 1｜法規義務</a>
     <a href="#p2-1" data-nav="p2">Part 2｜儲能效益</a>
-    <a href="#p3" data-nav="p3">Part 3｜用戶問卷</a>
+    <a href="#p3-1" data-nav="p3">Part 3｜ATMOCE 產品</a>
+    <a href="#appendix" data-nav="appendix">附錄｜用戶問卷</a>
   </nav>
   <div class="meta">客戶／業主說明版 · 2026.07</div>
 </div>
@@ -231,7 +232,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
   <div class="home">
     <div class="eyebrow">顧問簡報 · 各 PART 約 5 分鐘</div>
     <h1>義務只會更硬——<br>表後儲能是把「合規成本」變「收益」的交集</h1>
-    <p class="lede">三個部分、一條主線：Part 1 說清楚您<b>依法必須做什麼、修法後可能變什麼</b>；Part 2 說清楚儲能<b>如何先止血、再逐層疊加收益</b>；Part 3 是<b>線上技術問卷</b>，填完直接寄出、啟動評估。點選卡片進入，任何時候可由上方切換。</p>
+    <p class="lede">三個部分、一條主線：Part 1 說清楚您<b>依法必須做什麼、修法後可能變什麼</b>；Part 2 說清楚儲能<b>如何先止血、再逐層疊加收益</b>；Part 3 介紹 <b>ATMOCE M-ELV BattBank 三大獨家賣點</b>。看完想啟動評估，填<b>附錄的線上技術問卷</b>直接寄出。</p>
 
     <div class="part-cards">
       <a class="part-card" href="#p1-1">
@@ -250,9 +251,17 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
         <div class="pc-flags"><span class="flag coral">初步試算 · 須核對電價</span></div>
         <div class="pc-go">進入 Part 2（11 頁）→</div>
       </a>
-      <a class="part-card" href="#p3">
+      <a class="part-card" href="#p3-1">
+        <svg class="pc-icon" width="52" height="52" viewBox="0 0 52 52"><rect x="14" y="36" width="24" height="9" rx="2.5" fill="var(--ink)"/><rect x="14" y="25" width="24" height="9" rx="2.5" fill="var(--green)"/><rect x="14" y="14" width="24" height="9" rx="2.5" fill="var(--green)"/><rect x="14" y="3" width="24" height="9" rx="2.5" fill="none" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 3"/><path d="M42 7h6M45 4v6" stroke="var(--coral)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <div class="pc-eyebrow">PART 3 · 產品介紹</div>
+        <h2>ATMOCE M-ELV BattBank<br>工商儲能三大獨家賣點</h2>
+        <p>全球首款 AC 可堆疊工商儲能：8kVA 一階精配、光電不降載、三相三線免升壓直接部署。</p>
+        <div class="pc-flags"><span class="flag coral">核心賣點 ⭐</span><span class="flag amber">規格以官方為準</span></div>
+        <div class="pc-go">進入 Part 3（8 頁）→</div>
+      </a>
+      <a class="part-card" href="#appendix">
         <svg class="pc-icon" width="52" height="52" viewBox="0 0 52 52"><rect x="9" y="5" width="34" height="42" rx="5" fill="var(--green-soft)"/><rect x="15" y="13" width="5" height="5" rx="2.5" fill="var(--green)"/><rect x="24" y="14" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><rect x="15" y="23" width="5" height="5" rx="2.5" fill="var(--green)"/><rect x="24" y="24" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><rect x="15" y="33" width="5" height="5" rx="2.5" fill="#fff" stroke="var(--grey-bar)"/><rect x="24" y="34" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><circle cx="40" cy="40" r="10" fill="var(--coral)"/><path d="M35 40l4 4 6-7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <div class="pc-eyebrow">PART 3 · 線上填寫</div>
+        <div class="pc-eyebrow">附錄 · 線上填寫</div>
         <h2>ESS 專案初步配置<br>技術問卷</h2>
         <p>五節、以選擇題為主，附圖說輔助作答。填完點「完成填寫」即寄出，我方據此提出初步配置。</p>
         <div class="pc-flags"><span class="flag teal">線上表單 · 約 10 分鐘</span></div>
@@ -285,12 +294,23 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
         <a href="#p2-11"><span class="no">11</span>下一步行動清單</a>
       </div>
       <div class="card">
-        <h3>PART 3 問卷章節</h3>
-        <a href="#p3"><span class="no">1</span>專案資訊（客戶、規模、應用場景）</a>
-        <a href="#p3"><span class="no">2</span>氣候條件（海拔、溫濕度、鹽霧）</a>
-        <a href="#p3"><span class="no">3</span>ESS 技術需求（C-rate、電壓、併網）</a>
-        <a href="#p3"><span class="no">4</span>商業條件（INCOTERMS、保固）</a>
-        <a href="#p3"><span class="no">5</span>客戶特殊需求（開放填寫）</a>
+        <h3>PART 3 目錄</h3>
+        <a href="#p3-1"><span class="no">1</span>全球首款 AC 可堆疊工商儲能</a>
+        <a href="#p3-2"><span class="no">2</span>&lt;60V 本質安全＋三層防護</a>
+        <a href="#p3-3"><span class="no">3</span>賣點一：8kVA 一階，一顆一顆賣</a>
+        <a href="#p3-4"><span class="no">4</span>賣點一：缺多少補多少，零浪費</a>
+        <a href="#p3-5"><span class="no">5</span>賣點二：光電不降載、多賺憑證</a>
+        <a href="#p3-6"><span class="no">6</span>賣點三：三相三線原生支援</a>
+        <a href="#p3-7"><span class="no">7</span>賣點三：免騰地、免升壓</a>
+        <a href="#p3-8"><span class="no">8</span>總結與行動呼籲</a>
+      </div>
+      <div class="card">
+        <h3>附錄 · 問卷章節</h3>
+        <a href="#appendix"><span class="no">1</span>專案資訊（客戶、規模、應用場景）</a>
+        <a href="#appendix"><span class="no">2</span>氣候條件（海拔、溫濕度、鹽霧）</a>
+        <a href="#appendix"><span class="no">3</span>ESS 技術需求（C-rate、電壓、併網）</a>
+        <a href="#appendix"><span class="no">4</span>商業條件（INCOTERMS、保固）</a>
+        <a href="#appendix"><span class="no">5</span>客戶特殊需求（開放填寫）</a>
       </div>
     </div>
 
@@ -951,12 +971,403 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
   </section>
 </div>
 
-<!-- ================= PART 3 : QUESTIONNAIRE ================= -->
+<!-- ================= PART 3 : ATMOCE PRODUCT ================= -->
 <div class="view" id="view-p3">
+
+  <!-- P3-1 -->
+  <section class="slide" id="p3-1">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · ATMOCE M-ELV BattBank · 01</div>
+        <h1>全球首款 AC 可堆疊工商儲能——像積木，一顆一顆疊</h1>
+        <div class="sub">"THE WORLD'S FIRST AC STACKABLE C&amp;I BATTERY"。六大設計支柱：可靠性 · 效率 · 安全 · 可擴充 · 智慧化 · 場景化。</div>
+      </div>
+      <div class="flags"><span class="flag amber">規格 Rev 1.0.1 · 以官方最新為準</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="split-40">
+        <div class="fig">
+          <svg viewBox="0 0 380 300" width="100%" role="img" aria-label="AC 可堆疊模組示意圖">
+            <g font-size="12" text-anchor="middle">
+              <rect x="90" y="238" width="160" height="34" rx="6" fill="var(--ink)"/>
+              <text x="170" y="260" fill="#fff" font-weight="800">底座 · AC 併接</text>
+              <rect x="90" y="196" width="160" height="36" rx="6" fill="var(--green)"/>
+              <text x="170" y="219" fill="#fff" font-weight="800">模組 1</text>
+              <rect x="90" y="154" width="160" height="36" rx="6" fill="var(--green)"/>
+              <text x="170" y="177" fill="#fff" font-weight="800">模組 2</text>
+              <rect x="90" y="112" width="160" height="36" rx="6" fill="var(--green)"/>
+              <text x="170" y="135" fill="#fff" font-weight="800">模組 3</text>
+              <rect x="90" y="70" width="160" height="36" rx="6" fill="none" stroke="var(--coral)" stroke-width="2.5" stroke-dasharray="7 5"/>
+              <text x="170" y="93" fill="var(--coral)" font-weight="800">＋模組 4…</text>
+              <path d="M270 88 h30" stroke="var(--coral)" stroke-width="2.5"/>
+              <text x="306" y="80" text-anchor="start" fill="var(--coral)" font-weight="800" font-size="13">每顆</text>
+              <text x="306" y="97" text-anchor="start" fill="var(--coral)" font-weight="800" font-size="13">+8 kVA</text>
+              <text x="306" y="114" text-anchor="start" fill="var(--coral)" font-weight="800" font-size="13">+16 kWh</text>
+              <path d="M60 250 v-180" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 4"/>
+              <path d="M60 70l-5 9h10z" fill="var(--muted)"/>
+              <text x="42" y="160" fill="var(--muted)" font-size="11" transform="rotate(-90 42 160)">依需求向上疊加</text>
+              <text x="170" y="292" fill="var(--muted)" font-size="11.5">0.88 m² 佔地可達 224 kWh（雙簇並排）</text>
+            </g>
+          </svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="three-col" style="gap:12px">
+            <div class="metric green"><div class="k">15 年</div><div class="t">產品壽命</div></div>
+            <div class="metric green"><div class="k">10,000</div><div class="t">循環壽命（次）</div></div>
+            <div class="metric green"><div class="k">&gt;90%</div><div class="t">AC 往返效率</div></div>
+          </div>
+          <div class="three-col" style="gap:12px">
+            <div class="metric amber"><div class="k">IP66</div><div class="t">防護等級 · 戶外可裝</div></div>
+            <div class="metric amber"><div class="k">1 小時</div><div class="t">完成安裝 · 5 分鐘啟動免監造</div></div>
+            <div class="metric amber"><div class="k">VPP ✓</div><div class="t">虛擬電廠支援</div></div>
+          </div>
+          <div class="card" style="font-size:.9rem"><b>運轉模式</b>：<span class="chip green">自發自用</span> <span class="chip teal">時間電價套利</span> <span class="chip amber">風暴防護 Storm Guard</span> <span class="chip coral">AI 模式</span></div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>來源：atmoce.com/en/battbank、M-ELV BattBank Data Sheet（MS-16K-U／MS-16K-Delta）</span><span class="pageno">1 / 8</span></footer>
+  </section>
+
+  <!-- P3-2 -->
+  <section class="slide" id="p3-2">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 安全與環境 · 02</div>
+        <h2>&lt;60V 本質安全——沒有高壓直流電弧這回事</h2>
+        <div class="sub">系統級超低壓設計，安裝與維護門檻更低；電芯級三層防護把風險擋在源頭。</div>
+      </div>
+      <div class="flags"><span class="flag green">系統級＋電芯級</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="fig">
+          <svg viewBox="0 0 420 270" width="100%" role="img" aria-label="電芯三層防護示意圖">
+            <g font-size="12" text-anchor="middle">
+              <rect x="30" y="20" width="360" height="230" rx="18" fill="var(--teal-soft)"/>
+              <text x="210" y="46" font-weight="800" fill="var(--teal)">第三層｜主動 · 多感測器協同保護</text>
+              <text x="210" y="63" font-size="10.5" fill="var(--muted)">過/欠壓 · 過流短路熔斷 · 熱管理 · 絕緣故障偵測</text>
+              <rect x="70" y="76" width="280" height="160" rx="14" fill="var(--amber-soft)"/>
+              <text x="210" y="100" font-weight="800" fill="#b07708">第二層｜被動 · 防爆閥</text>
+              <text x="210" y="116" font-size="10.5" fill="var(--muted)">汽車級 · IP66</text>
+              <rect x="110" y="126" width="200" height="96" rx="10" fill="var(--coral-soft)"/>
+              <text x="210" y="148" font-weight="800" fill="var(--coral)">第一層｜被動 · 內建滅火</text>
+              <text x="210" y="164" font-size="10.5" fill="var(--muted)">≥170°C 自動觸發＋雙重冷卻＋惰性氣體</text>
+              <rect x="172" y="176" width="76" height="34" rx="6" fill="var(--green)"/>
+              <text x="210" y="198" fill="#fff" font-weight="800">電芯</text>
+            </g>
+          </svg>
+          <div class="cap">電芯級三層防護：兩層被動＋一層主動，層層包覆</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="big-callout">
+            <div class="label">系統級本質安全</div>
+            <div class="answer">&lt;60V 超低壓架構，無高壓直流電弧風險。</div>
+            <div class="more">安裝、維護不需高壓作業資格——部署速度與人力成本雙贏。</div>
+          </div>
+          <div class="three-col" style="gap:12px">
+            <div class="metric green"><div class="k">-30~55<span style="font-size:.55em">℃</span></div><div class="t">運作溫度：耐台灣高溫</div></div>
+            <div class="metric green"><div class="k">3,000<span style="font-size:.55em">m</span></div><div class="t">最高海拔</div></div>
+            <div class="metric green"><div class="k">IP66</div><div class="t">防塵防水：耐颱風多濕</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>來源：M-ELV BattBank Data Sheet</span><span class="pageno">2 / 8</span></footer>
+  </section>
+
+  <!-- P3-3 -->
+  <section class="slide" id="p3-3">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 賣點一 · 03</div>
+        <h2>別人整櫃賣，ATMOCE 一顆一顆賣——每 8kVA 一階</h2>
+        <div class="sub">以模組為單位逐階疊加，讓配置精準對齊業主需求，而不是被規格綁架。</div>
+      </div>
+      <div class="flags"><span class="flag coral">核心賣點 ⭐</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 250" width="100%" role="img" aria-label="模組數與容量階梯圖">
+          <g font-size="12" text-anchor="middle">
+            <line x1="50" y1="210" x2="870" y2="210" stroke="var(--line)" stroke-width="2"/>
+            <rect x="70"  y="186" width="80" height="24"  rx="4" fill="var(--green)" opacity=".45"/><text x="110" y="178" font-weight="700" fill="var(--muted)">16</text><text x="110" y="228" fill="var(--muted)">1 顆</text>
+            <rect x="185" y="162" width="80" height="48"  rx="4" fill="var(--green)" opacity=".55"/><text x="225" y="154" font-weight="700" fill="var(--muted)">32</text><text x="225" y="228" fill="var(--muted)">2 顆</text>
+            <rect x="300" y="138" width="80" height="72"  rx="4" fill="var(--green)" opacity=".65"/><text x="340" y="130" font-weight="700" fill="var(--muted)">48</text><text x="340" y="228" fill="var(--muted)">3 顆</text>
+            <rect x="415" y="114" width="80" height="96"  rx="4" fill="var(--green)" opacity=".75"/><text x="455" y="106" font-weight="700" fill="var(--muted)">64</text><text x="455" y="228" fill="var(--muted)">4 顆</text>
+            <rect x="530" y="90"  width="80" height="120" rx="4" fill="var(--green)" opacity=".85"/><text x="570" y="82" font-weight="700" fill="var(--muted)">80</text><text x="570" y="228" fill="var(--muted)">5 顆</text>
+            <rect x="645" y="66"  width="80" height="144" rx="4" fill="var(--green)" opacity=".95"/><text x="685" y="58" font-weight="700" fill="var(--muted)">96</text><text x="685" y="228" fill="var(--muted)">6 顆</text>
+            <rect x="760" y="42"  width="80" height="168" rx="4" fill="var(--green)"/><text x="800" y="34" font-weight="800" fill="var(--green)">112.6 kWh</text><text x="800" y="228" fill="var(--muted)">7 顆</text>
+            <path d="M150 176 L185 168 M265 152 L300 144 M380 128 L415 120 M495 104 L530 96 M610 80 L645 72 M725 56 L760 48" stroke="var(--coral)" stroke-width="2.5"/>
+            <text x="455" y="248" fill="var(--coral)" font-weight="800" font-size="13">每加 1 顆：＋8 kVA ／ ＋16.08 kWh，缺多少、補多少</text>
+          </g>
+        </svg>
+      </div>
+      <div class="two-col">
+        <div class="table-wrap">
+          <table style="min-width:0">
+            <tr><th>模組數</th><th class="num">kWh</th><th class="num">kVA（Wye）</th><th class="num">kVA（Delta）</th></tr>
+            <tr><td>1</td><td class="num">16.08</td><td class="num">8</td><td class="num">8</td></tr>
+            <tr><td>3</td><td class="num">48.24</td><td class="num">24</td><td class="num">24</td></tr>
+            <tr><td>5</td><td class="num">80.40</td><td class="num">40</td><td class="num">40※</td></tr>
+            <tr><td>7</td><td class="num">112.56</td><td class="num">56</td><td class="num">40※</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <b>※ Delta 機型注意</b>
+          <p style="margin-top:8px;font-size:.92rem">模組數 ≥4 時，因堆疊連接器最大載流量 105A，功率封頂 <b>40kVA</b>（實際隨電壓變動）——容量仍可續疊，放電時間拉長。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>完整 1–7 顆對照見 Data Sheet；kVA 值依 MS-16K-U／MS-16K-Delta</span><span class="pageno">3 / 8</span></footer>
+  </section>
+
+  <!-- P3-4 -->
+  <section class="slide" id="p3-4">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 賣點一（續） · 04</div>
+        <h2>超約缺口 40kW，就配 5 顆——不多買、也不少補</h2>
+        <div class="sub">整櫃型競品的最小單位動輒 125kW／261kWh，缺口小的業主被迫過度投資。</div>
+      </div>
+      <div class="flags"><span class="flag coral">核心賣點 ⭐</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 230" width="100%" role="img" aria-label="整櫃競品與模組化配置對比圖">
+          <g font-size="13">
+            <line x1="360" y1="20" x2="360" y2="190" stroke="var(--ink)" stroke-width="2.5" stroke-dasharray="8 6"/>
+            <text x="368" y="34" font-weight="800" fill="var(--ink)">業主實際缺口 40kW</text>
+            <text x="20" y="66" font-weight="700" fill="var(--muted)">整櫃型競品</text>
+            <rect x="20" y="76" width="850" height="30" rx="8" fill="var(--grey-bar)"/>
+            <rect x="360" y="76" width="510" height="30" rx="0" fill="var(--coral)" opacity=".8"/>
+            <text x="200" y="96" fill="#fff" font-weight="800" text-anchor="middle">125kW 整櫃起跳</text>
+            <text x="615" y="96" fill="#fff" font-weight="800" text-anchor="middle">多買 85kW ＝ 過度配置、資本閒置</text>
+            <text x="20" y="146" font-weight="700" fill="var(--green)">ATMOCE 模組化</text>
+            <g>
+              <rect x="20"  y="156" width="64" height="30" rx="6" fill="var(--green)"/>
+              <rect x="89"  y="156" width="64" height="30" rx="6" fill="var(--green)"/>
+              <rect x="158" y="156" width="64" height="30" rx="6" fill="var(--green)"/>
+              <rect x="227" y="156" width="64" height="30" rx="6" fill="var(--green)"/>
+              <rect x="296" y="156" width="64" height="30" rx="6" fill="var(--green)"/>
+              <text x="190" y="176" fill="#fff" font-weight="800" text-anchor="middle">8×5 ＝ 40kVA</text>
+            </g>
+            <text x="372" y="176" fill="var(--green)" font-weight="800">✓ 精準貼合，零浪費</text>
+            <text x="20" y="215" fill="var(--muted)" font-size="12">反向情境同理：缺口 130kW 時，整櫃型只能跳到 250kW；ATMOCE 配 17 顆＝136kVA 即可。</text>
+          </g>
+        </svg>
+      </div>
+      <div class="two-col">
+        <div class="card" style="border-top:5px solid var(--green)">
+          <b>場景 ①｜用電大戶抑制契約容量</b>
+          <p style="margin-top:8px;font-size:.92rem">削平尖峰需量，避免觸及下一級距的契約容量門檻（接 Part 2 的降容邏輯）。</p>
+        </div>
+        <div class="card" style="border-top:5px solid var(--teal)">
+          <b>場景 ②｜契約容量調降的補充方案</b>
+          <p style="margin-top:8px;font-size:.92rem">與既有節電措施搭配，精算「還差多少 kW」再用模組數補齊，不需整批重新規劃。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>競品規格以市售整櫃型工商儲能常見最小部署單位為例</span><span class="pageno">4 / 8</span></footer>
+  </section>
+
+  <!-- P3-5 -->
+  <section class="slide" id="p3-5">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 賣點二 · 05</div>
+        <h2>光電不降載——多發的電全部收下來，還多賺憑證</h2>
+        <div class="sub">自發自用情境下，光電超過即時負載就得降載（curtailment）白白浪費；儲能等於幫太陽能多開一個「即時用電戶」。</div>
+      </div>
+      <div class="flags"><span class="flag coral">核心賣點 ⭐</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 260" width="100%" role="img" aria-label="光電降載與儲能吸收機制圖">
+          <g font-size="12.5">
+            <line x1="50" y1="215" x2="870" y2="215" stroke="var(--line)" stroke-width="2"/>
+            <text x="60" y="238" fill="var(--muted)">06:00</text><text x="430" y="238" fill="var(--muted)" text-anchor="middle">12:00</text><text x="840" y="238" fill="var(--muted)" text-anchor="end">18:00</text>
+            <!-- load line -->
+            <path d="M50 150 C 160 145 260 140 430 138 C 600 140 740 145 870 150" fill="none" stroke="var(--ink)" stroke-width="3"/>
+            <text x="80" y="136" font-weight="800" fill="var(--ink)">廠區即時負載</text>
+            <!-- PV curve -->
+            <path d="M50 213 C 200 210 250 60 430 55 C 610 60 700 210 870 213" fill="none" stroke="var(--amber)" stroke-width="4"/>
+            <text x="430" y="42" font-weight="800" fill="#b07708" text-anchor="middle">☀ 太陽光電發電曲線</text>
+            <!-- surplus area (approx polygon between curves where PV>load) -->
+            <path d="M247 140 C 300 90 360 58 430 56 C 500 58 560 90 615 140 C 500 137 360 137 247 140 Z" fill="var(--green)" opacity=".3"/>
+            <text x="430" y="112" text-anchor="middle" font-weight="800" fill="var(--green)">超出負載的電 → 充入電池</text>
+            <!-- battery -->
+            <rect x="390" y="158" width="80" height="42" rx="8" fill="var(--green)"/>
+            <rect x="472" y="170" width="7" height="18" rx="2" fill="var(--green)"/>
+            <text x="430" y="184" text-anchor="middle" fill="#fff" font-weight="800">ATMOCE</text>
+            <path d="M430 128 v24" stroke="var(--green)" stroke-width="3"/><path d="M430 156l-7-10h14z" fill="var(--green)"/>
+            <!-- evening discharge -->
+            <path d="M474 179 C 620 175 700 160 780 152" fill="none" stroke="var(--coral)" stroke-width="3" stroke-dasharray="7 5"/>
+            <path d="M784 151l-12-4 3 12z" fill="var(--coral)"/>
+            <text x="700" y="196" font-weight="800" fill="var(--coral)">尖峰時段放電抵用電費</text>
+          </g>
+        </svg>
+        <div class="cap">沒有儲能：綠色區塊只能「降載」丟掉｜有儲能：滿載發電、憑證照領、尖峰再放電</div>
+      </div>
+      <div class="three-col">
+        <div class="metric green"><div class="k">發電 ↑</div><div class="t">光電維持滿載，不因負載不足降載</div></div>
+        <div class="metric amber"><div class="k">T-REC ↑</div><div class="t">憑證依「實際發電量」核發——不降載＝更多憑證</div></div>
+        <div class="metric coral"><div class="k">電費 ↓</div><div class="t">儲存的光電於尖峰放電，疊加時間電價套利</div></div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>適用：無躉售、或躉售電價低於零售電價之自發自用情境</span><span class="pageno">5 / 8</span></footer>
+  </section>
+
+  <!-- P3-6 -->
+  <section class="slide" id="p3-6">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 賣點三 · 06</div>
+        <h2>市場少數原生支援「三相三線」的工商儲能</h2>
+        <div class="sub">多數競品僅原生支援 Wye（三相四線）380V 級電網；三相三線用戶往往得先升壓才能導入儲能。</div>
+      </div>
+      <div class="flags"><span class="flag coral">核心賣點 ⭐</span><span class="flag amber">規格以官方為準</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="two-col">
+        <div class="fig">
+          <svg viewBox="0 0 420 250" width="100%" role="img" aria-label="Delta 三相三線與 Wye 三相四線接線示意">
+            <g font-size="12" text-anchor="middle">
+              <rect x="15" y="16" width="185" height="196" rx="12" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/>
+              <text x="107" y="42" font-weight="800" fill="var(--green)">Delta 三相三線</text>
+              <path d="M107 66 L62 146 L152 146 Z" fill="none" stroke="var(--green)" stroke-width="3.5"/>
+              <circle cx="107" cy="66" r="5" fill="var(--green)"/><circle cx="62" cy="146" r="5" fill="var(--green)"/><circle cx="152" cy="146" r="5" fill="var(--green)"/>
+              <text x="107" y="176" fill="var(--ink)" font-weight="700">L1 · L2 · L3（3 條線）</text>
+              <text x="107" y="196" fill="var(--green)" font-weight="800">MS-16K-Delta 原生支援 ✓</text>
+              <rect x="220" y="16" width="185" height="196" rx="12" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+              <text x="312" y="42" font-weight="800" fill="var(--muted)">Wye 三相四線</text>
+              <path d="M312 130 L312 66 M312 130 L262 160 M312 130 L362 160" stroke="var(--grey-bar)" stroke-width="3.5" fill="none"/>
+              <circle cx="312" cy="66" r="5" fill="var(--grey-bar)"/><circle cx="262" cy="160" r="5" fill="var(--grey-bar)"/><circle cx="362" cy="160" r="5" fill="var(--grey-bar)"/>
+              <circle cx="312" cy="130" r="6" fill="var(--muted)"/>
+              <text x="312" y="184" fill="var(--muted)" font-weight="700">L1 · L2 · L3 ＋ N（中性線）</text>
+              <text x="312" y="202" fill="var(--muted)">多數競品僅支援此類（380V）</text>
+            </g>
+          </svg>
+          <div class="cap">Delta＝三角形接法、無中性線；Wye＝星形接法、有中性線</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="table-wrap">
+            <table style="min-width:0">
+              <tr><th colspan="2">MS-16K-Delta 技術規格</th></tr>
+              <tr><td><b>電網型式</b></td><td>Delta（三相三線），線電壓 &lt;300Vac</td></tr>
+              <tr><td><b>標稱電壓</b></td><td>3/PE~ 202V／210V／220V／230V</td></tr>
+              <tr><td><b>額定輸出電流</b></td><td>26.2A @220V</td></tr>
+              <tr><td><b>峰值輸出電流（離網）</b></td><td>34.3A（10 秒）</td></tr>
+            </table>
+          </div>
+          <div class="big-callout" style="background:linear-gradient(135deg,#0d3f4a,#177f8f)">
+            <div class="label">為什麼重要</div>
+            <div class="answer">台灣多數中小型工廠正是三相三線 220V 用戶——這塊市場，多數競品進不來。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>來源：MS-16K-Delta Data Sheet；對比對象為市售主流 Wye 380V 級機型</span><span class="pageno">6 / 8</span></footer>
+  </section>
+
+  <!-- P3-7 -->
+  <section class="slide" id="p3-7">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 賣點三（續） · 07</div>
+        <h2>不用騰出 5×6 米土地給台電，就能先上儲能</h2>
+        <div class="sub">用電超過 100kW 須改高壓、升三相四線——但升壓的代價是土地與時間，很多工廠根本生不出來。</div>
+      </div>
+      <div class="flags"><span class="flag coral">台灣痛點對應</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="fig">
+        <svg viewBox="0 0 900 240" width="100%" role="img" aria-label="三相四線升壓需騰地與 ATMOCE 免升壓對比圖">
+          <g font-size="12.5">
+            <rect x="20" y="24" width="410" height="190" rx="12" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+            <text x="225" y="48" text-anchor="middle" font-weight="800" fill="var(--muted)">傳統路徑：升壓三相四線</text>
+            <rect x="40" y="62" width="370" height="130" rx="8" fill="var(--paper)" stroke="var(--line)"/>
+            <rect x="52" y="74" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="97" y="101" text-anchor="middle" fill="#fff" font-weight="700">產線 A</text>
+            <rect x="152" y="74" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="197" y="101" text-anchor="middle" fill="#fff" font-weight="700">產線 B</text>
+            <rect x="52" y="132" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="97" y="159" text-anchor="middle" fill="#fff" font-weight="700">倉儲</text>
+            <rect x="152" y="132" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="197" y="159" text-anchor="middle" fill="#fff" font-weight="700">辦公</text>
+            <rect x="258" y="80" width="136" height="96" rx="6" fill="var(--coral-soft)" stroke="var(--coral)" stroke-width="2.5" stroke-dasharray="8 5"/>
+            <text x="326" y="118" text-anchor="middle" font-weight="800" fill="var(--coral)">5m × 6m</text>
+            <text x="326" y="138" text-anchor="middle" font-weight="700" fill="var(--coral)">須讓給台電設變壓器</text>
+            <text x="326" y="162" text-anchor="middle" font-size="18" font-weight="900" fill="var(--coral)">✕ 騰不出來</text>
+            <rect x="470" y="24" width="410" height="190" rx="12" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2.5"/>
+            <text x="675" y="48" text-anchor="middle" font-weight="800" fill="var(--green)">ATMOCE 路徑：免升壓直接部署</text>
+            <rect x="490" y="62" width="370" height="130" rx="8" fill="#fff" stroke="var(--line)"/>
+            <rect x="502" y="74" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="547" y="101" text-anchor="middle" fill="#fff" font-weight="700">產線 A</text>
+            <rect x="602" y="74" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="647" y="101" text-anchor="middle" fill="#fff" font-weight="700">產線 B</text>
+            <rect x="502" y="132" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="547" y="159" text-anchor="middle" fill="#fff" font-weight="700">倉儲</text>
+            <rect x="602" y="132" width="90" height="46" rx="5" fill="var(--grey-bar)"/><text x="647" y="159" text-anchor="middle" fill="#fff" font-weight="700">辦公</text>
+            <rect x="712" y="86" width="34" height="84" rx="5" fill="var(--green)"/><rect x="750" y="86" width="34" height="84" rx="5" fill="var(--green)"/>
+            <text x="765" y="76" text-anchor="middle" font-weight="800" fill="var(--green)">儲能塔 ✓</text>
+            <text x="798" y="130" font-weight="800" fill="var(--green)" font-size="13">牆邊即可</text>
+            <text x="798" y="148" font-size="11.5" fill="var(--muted)">0.88m²/塔</text>
+          </g>
+        </svg>
+      </div>
+      <div class="two-col">
+        <div class="table-wrap">
+          <table style="min-width:0">
+            <tr><th></th><th>三相三線</th><th>三相四線</th></tr>
+            <tr><td><b>配電場所</b></td><td><span class="chip green">免提供</span>台電於責任點外自設</td><td><span class="chip coral">須劃 5×6 米地</span>供台電進駐</td></tr>
+            <tr><td><b>適用</b></td><td>100kW 以下</td><td>超過 100kW 強制升壓</td></tr>
+          </table>
+        </div>
+        <div class="card" style="border-top:5px solid var(--green)">
+          <b>ATMOCE 解法＝先儲能、後升壓（或不升壓）</b>
+          <p style="margin-top:8px;font-size:.92rem">Delta 機型直接部署 → 削峰降需量，「不升壓也多出用電餘裕」；省下騰地、台電審查與升壓資本支出的時間成本。</p>
+        </div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>依台灣現行規定：100kW 以上發電或用電場所須採高壓電</span><span class="pageno">7 / 8</span></footer>
+  </section>
+
+  <!-- P3-8 -->
+  <section class="slide" id="p3-8">
+    <header class="slide-header">
+      <div>
+        <div class="eyebrow">PART 3 · 總結 · 08</div>
+        <h2>三個「別人做不到」，一個行動：把台電帳單交給我們</h2>
+      </div>
+      <div class="flags"><span class="flag green">下一步</span></div>
+    </header>
+    <div class="slide-body">
+      <div class="three-col">
+        <div class="card" style="border-top:5px solid var(--coral)">
+          <span class="chip coral">賣點一</span>
+          <h3 style="margin:10px 0 8px;font-size:1.05rem">8kVA 一階，缺多少補多少</h3>
+          <p style="font-size:.9rem;color:var(--muted)">告別整櫃起跳的過度投資，配置精準對齊契約容量缺口。</p>
+        </div>
+        <div class="card" style="border-top:5px solid var(--amber)">
+          <span class="chip amber">賣點二</span>
+          <h3 style="margin:10px 0 8px;font-size:1.05rem">光電不降載，憑證多賺</h3>
+          <p style="font-size:.9rem;color:var(--muted)">多餘光電入電池：發電量不降、T-REC 更多、尖峰再放電。</p>
+        </div>
+        <div class="card" style="border-top:5px solid var(--green)">
+          <span class="chip green">賣點三</span>
+          <h3 style="margin:10px 0 8px;font-size:1.05rem">三相三線原生支援</h3>
+          <p style="font-size:.9rem;color:var(--muted)">免升壓、免騰地、免等審查，中小工廠直接部署。</p>
+        </div>
+      </div>
+      <div class="big-callout">
+        <div class="label">行動呼籲</div>
+        <div class="answer">提供最近一年台電帳單與用電曲線，我們精算「該配幾顆」——或現在就填附錄的技術問卷。</div>
+        <div class="more"><a href="#appendix" style="color:#ffd98a;font-weight:800">前往附錄 · ESS 技術問卷 →</a>　<a href="#home" style="color:#ffd98a;font-weight:800">回首頁 ↺</a></div>
+      </div>
+    </div>
+    <footer class="slide-foot"><span>產品規格如有更新，正式對外前以 ATMOCE 官方最新版 Data Sheet 為準</span><span class="pageno">8 / 8</span></footer>
+  </section>
+</div>
+
+<!-- ================= APPENDIX : QUESTIONNAIRE ================= -->
+<div class="view" id="view-appendix">
   <div class="formpage">
     <div id="essFormArea">
       <div class="form-hero">
-        <div class="eyebrow" style="color:#9fd8c8">PART 3 · 用戶問卷 · 線上填寫</div>
+        <div class="eyebrow" style="color:#9fd8c8">附錄 · 用戶問卷 · 線上填寫</div>
         <h1>儲能系統（ESS）專案初步配置技術問卷</h1>
         <p>以選擇題為主、約 10 分鐘。填寫完成後點選最下方「<b>完成填寫</b>」，資料將直接寄出給顧問窗口，我方據此提出初步系統配置與試算。專有名詞（ESS、PCS、C-rate、BOL/EOL 等）保留英文以利與原廠對照。</p>
         <div class="req-hint">＊ 為必填；其餘題目不確定可留白，顧問會後續協助釐清。</div>
@@ -1412,15 +1823,17 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
 (function(){
   var parts = {
     p1: Array.prototype.slice.call(document.querySelectorAll('#view-p1 .slide')),
-    p2: Array.prototype.slice.call(document.querySelectorAll('#view-p2 .slide'))
+    p2: Array.prototype.slice.call(document.querySelectorAll('#view-p2 .slide')),
+    p3: Array.prototype.slice.call(document.querySelectorAll('#view-p3 .slide'))
   };
   var state = { view:'home', idx:0 };
-  var last = { p1:0, p2:0 };
+  var last = { p1:0, p2:0, p3:0 };
 
   var views = { home:document.getElementById('view-home'),
                 p1:document.getElementById('view-p1'),
                 p2:document.getElementById('view-p2'),
-                p3:document.getElementById('view-p3') };
+                p3:document.getElementById('view-p3'),
+                appendix:document.getElementById('view-appendix') };
   var deckbar = document.getElementById('deckbar');
   var fill = document.getElementById('progressFill');
   var counter = document.getElementById('counter');
@@ -1431,7 +1844,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
     for(var i=0;i<navs.length;i++){
       navs[i].classList.toggle('active', navs[i].getAttribute('data-nav')===state.view);
     }
-    if(state.view==='home'||state.view==='p3'){
+    if(state.view==='home'||state.view==='appendix'){
       deckbar.style.display='none';
     } else {
       deckbar.style.display='block';
@@ -1447,31 +1860,33 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
   function goHash(hash){
     hash = (hash||'#home').replace('#','');
     if(hash==='home'||hash===''){ state.view='home'; render(); return; }
-    if(hash==='p3'){ state.view='p3'; render(); return; }
-    var m = hash.match(/^(p1|p2)-(\d+)$/);
+    if(hash==='appendix'||hash==='survey'){ state.view='appendix'; render(); return; }
+    var m = hash.match(/^(p1|p2|p3)-(\d+)$/);
     if(m){
       var v=m[1], i=parseInt(m[2],10)-1;
       if(parts[v][i]){ state.view=v; state.idx=i; render(); return; }
     }
-    if(hash==='p1'||hash==='p2'){ state.view=hash; state.idx=last[hash]; render(); return; }
+    if(hash==='p1'||hash==='p2'||hash==='p3'){ state.view=hash; state.idx=last[hash]; render(); return; }
     state.view='home'; render();
   }
 
   function setHash(){
-    var h = state.view==='home' ? '#home' : (state.view==='p3' ? '#p3' : '#'+state.view+'-'+(state.idx+1));
+    var h = state.view==='home' ? '#home' : (state.view==='appendix' ? '#appendix' : '#'+state.view+'-'+(state.idx+1));
     if(location.hash!==h) history.replaceState(null,'',h);
   }
 
   function move(d){
-    if(state.view==='p3') return;
+    if(state.view==='appendix') return;
     if(state.view==='home'){ if(d>0){ state.view='p1'; state.idx=0; render(); setHash(); } return; }
     var slides = parts[state.view];
     var n = state.idx + d;
     if(n<0){
       if(state.view==='p2'){ state.view='p1'; state.idx=parts.p1.length-1; }
+      else if(state.view==='p3'){ state.view='p2'; state.idx=parts.p2.length-1; }
       else { state.view='home'; }
     } else if(n>=slides.length){
       if(state.view==='p1'){ state.view='p2'; state.idx=0; }
+      else if(state.view==='p2'){ state.view='p3'; state.idx=0; }
       else { state.view='home'; }
     } else { state.idx=n; }
     render(); setHash();
@@ -1599,7 +2014,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
       }).then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
         .then(function(res){
           if(res.ok && String(res.j.success)==='true'){
-            document.getElementById('view-p3').classList.add('done');
+            document.getElementById('view-appendix').classList.add('done');
             window.scrollTo(0,0);
           } else { throw new Error('formsubmit'); }
         })
