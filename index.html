@@ -271,9 +271,9 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
       <a class="part-card" href="#appendix">
         <svg class="pc-icon" width="52" height="52" viewBox="0 0 52 52"><rect x="9" y="5" width="34" height="42" rx="5" fill="var(--green-soft)"/><rect x="15" y="13" width="5" height="5" rx="2.5" fill="var(--green)"/><rect x="24" y="14" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><rect x="15" y="23" width="5" height="5" rx="2.5" fill="var(--green)"/><rect x="24" y="24" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><rect x="15" y="33" width="5" height="5" rx="2.5" fill="#fff" stroke="var(--grey-bar)"/><rect x="24" y="34" width="14" height="3" rx="1.5" fill="var(--grey-bar)"/><circle cx="40" cy="40" r="10" fill="var(--coral)"/><path d="M35 40l4 4 6-7" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div class="pc-eyebrow">附錄 · 線上填寫</div>
-        <h2>ESS 專案初步配置<br>技術問卷</h2>
-        <p>五節、以選擇題為主，附圖說輔助作答。填完點「完成填寫」即寄出，我方據此提出初步配置。</p>
-        <div class="pc-flags"><span class="flag teal">線上表單 · 約 10 分鐘</span></div>
+        <h2>儲能導入需求問卷<br>（業主用戶版）</h2>
+        <p>四節、以選擇題為主，附圖說輔助作答；台灣場域版。填完點「完成填寫」即寄出，顧問據此試算降容與 ATMOCE 配置。</p>
+        <div class="pc-flags"><span class="flag teal">線上表單 · 約 5 分鐘</span></div>
         <div class="pc-go">開始填寫 →</div>
       </a>
     </div>
@@ -324,12 +324,11 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
         <a href="#p4-7"><span class="no">7</span>導入時程（6~10 週）</a>
       </div>
       <div class="card">
-        <h3>附錄 · 問卷章節</h3>
-        <a href="#appendix"><span class="no">1</span>專案資訊（客戶、規模、應用場景）</a>
-        <a href="#appendix"><span class="no">2</span>氣候條件（海拔、溫濕度、鹽霧）</a>
-        <a href="#appendix"><span class="no">3</span>ESS 技術需求（C-rate、電壓、併網）</a>
-        <a href="#appendix"><span class="no">4</span>商業條件（INCOTERMS、保固）</a>
-        <a href="#appendix"><span class="no">5</span>客戶特殊需求（開放填寫）</a>
+        <h3>附錄 · 問卷章節（業主用戶版）</h3>
+        <a href="#appendix"><span class="no">1</span>基本資料與用電契約（容量、商模）</a>
+        <a href="#appendix"><span class="no">2</span>場址環境（台灣場域版）</a>
+        <a href="#appendix"><span class="no">3</span>現地電力與 ATMOCE 適配</a>
+        <a href="#appendix"><span class="no">4</span>特殊需求與補充</a>
       </div>
     </div>
 
@@ -1687,36 +1686,34 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
   <div class="formpage">
     <div id="essFormArea">
       <div class="form-hero">
-        <div class="eyebrow" style="color:#9fd8c8">附錄 · 用戶問卷 · 線上填寫</div>
-        <h1>儲能系統（ESS）專案初步配置技術問卷</h1>
-        <p>以選擇題為主、約 10 分鐘。填寫完成後點選最下方「<b>完成填寫</b>」，資料將直接寄出給顧問窗口，我方據此提出初步系統配置與試算。專有名詞（ESS、PCS、C-rate、BOL/EOL 等）保留英文以利與原廠對照。</p>
-        <div class="req-hint">＊ 為必填；其餘題目不確定可留白，顧問會後續協助釐清。</div>
+        <div class="eyebrow" style="color:#9fd8c8">附錄 · 業主需求問卷 · 線上填寫</div>
+        <h1>儲能導入需求問卷（業主用戶版）</h1>
+        <p>請<b>業主／廠務窗口</b>依現況勾選，約 5 分鐘。我們將依您的契約容量與現地條件，提出 <b>ATMOCE 初步配置與降容試算</b>（做法同 Part 4 案例）。不確定的題目可留白或選「不確定」，由顧問到場確認。</p>
+        <div class="req-hint">＊ 為必填｜台灣場域適用版（已省略海外環境題）｜規格固定項目（液冷、1500V 等）不再詢問。</div>
       </div>
 
       <!-- ===== 第1節 ===== -->
-      <div class="fsec"><h2>第 1 節：專案資訊</h2><p>基本資料、規模、供貨範圍與應用場景。</p></div>
+      <div class="fsec"><h2>第 1 節：基本資料與用電契約</h2><p>誰在用電、跟台電簽了多少、想降到多少。</p></div>
 
-      <div class="q" data-no="1.1" data-label="客戶名稱" data-req="1">
-        <div class="q-title">1.1 客戶名稱 <span class="req">＊</span></div>
-        <div class="inrow"><input type="text" class="tin wide" placeholder="公司／機構全名"></div>
+      <div class="q" data-no="1.1" data-label="公司／廠區名稱" data-req="1">
+        <div class="q-title">1.1 公司／廠區名稱 <span class="req">＊</span></div>
+        <div class="inrow"><input type="text" class="tin wide" placeholder="例：○○實業 新竹廠"></div>
       </div>
 
-      <div class="q" data-no="1.2" data-label="客戶類型">
-        <div class="q-title">1.2 客戶類型</div>
+      <div class="q" data-no="1.2" data-label="場域類型">
+        <div class="q-title">1.2 您的場域類型是？</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q1_2" value="投資方 (Investors)"><span>投資方 (Investors)</span></label>
-          <label class="opt"><input type="radio" name="q1_2" value="EPC工程承包商 (EPC contractors)"><span>EPC工程承包商 (EPC contractors)</span></label>
-          <label class="opt"><input type="radio" name="q1_2" value="設計院 (Design Institutes)"><span>設計院 (Design Institutes)</span></label>
-          <label class="opt"><input type="radio" name="q1_2" value="系統整合商 (System Integrators)"><span>系統整合商 (System Integrators)</span></label>
-          <label class="opt"><input type="radio" name="q1_2" value="獨立發電業者 (IPP)"><span>獨立發電業者 (Independent Power Producers, IPP)</span></label>
-          <label class="opt"><input type="radio" name="q1_2" value="電網公司 (Grid companies)"><span>電網公司 (Grid companies)</span></label>
+          <label class="opt"><input type="radio" name="q1_2" value="製造業工廠（金屬／機械／塑橡膠等）"><span>製造業工廠（金屬、機械、塑橡膠等）</span></label>
+          <label class="opt"><input type="radio" name="q1_2" value="電子／半導體／光電廠"><span>電子、半導體、光電廠</span></label>
+          <label class="opt"><input type="radio" name="q1_2" value="食品／冷鏈／倉儲物流"><span>食品、冷鏈、倉儲物流</span></label>
+          <label class="opt"><input type="radio" name="q1_2" value="商辦／飯店／零售賣場"><span>商辦、飯店、零售賣場</span></label>
+          <label class="opt"><input type="radio" name="q1_2" value="醫療／教育／公共機構"><span>醫療、教育、公共機構</span></label>
           <label class="opt"><input type="radio" name="q1_2" value="其他"><span>其他：</span><input type="text" class="tin inline" data-k="其他說明" placeholder="請說明"></label>
         </div>
       </div>
 
-      <div class="q" data-no="1.3" data-label="客戶聯絡人" data-req="1">
-        <div class="q-title">1.3 客戶聯絡人 <span class="req">＊</span></div>
-        <div class="q-note">請包含姓名、職稱及聯絡方式（電話／Email）</div>
+      <div class="q" data-no="1.3" data-label="聯絡窗口" data-req="1">
+        <div class="q-title">1.3 聯絡窗口 <span class="req">＊</span></div>
         <div class="inrow">
           <span class="lab">姓名</span><input type="text" class="tin inline" data-k="姓名">
           <span class="lab">職稱</span><input type="text" class="tin inline" data-k="職稱">
@@ -1725,376 +1722,277 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
         </div>
       </div>
 
-      <div class="q" data-no="1.4" data-label="專案名稱" data-req="1">
-        <div class="q-title">1.4 專案名稱 <span class="req">＊</span></div>
-        <div class="inrow"><input type="text" class="tin wide" placeholder="例：○○廠區表後儲能專案"></div>
+      <div class="q" data-no="1.4" data-label="廠區地點">
+        <div class="q-title">1.4 廠區地點</div>
+        <div class="inrow"><input type="text" class="tin wide" placeholder="縣市／工業區或園區名稱"></div>
       </div>
 
-      <div class="q" data-no="1.5" data-label="專案地點">
-        <div class="q-title">1.5 專案地點</div>
-        <div class="inrow"><input type="text" class="tin wide" placeholder="縣市／園區／廠址"></div>
-      </div>
-
-      <div class="q" data-no="1.6a" data-label="規模（功率與容量）">
-        <div class="q-title">1.6a 規模（含功率 Power 與容量 Capacity）</div>
-        <div class="inrow">
-          <span class="lab">功率</span><input type="number" class="tin inline" data-k="功率(MW)" step="any" min="0"><span class="lab">MW</span>
-          <span class="lab">容量</span><input type="number" class="tin inline" data-k="容量(MWh)" step="any" min="0"><span class="lab">MWh</span>
-        </div>
-      </div>
-
-      <div class="q" data-no="1.6b" data-label="能量定義基準">
-        <div class="q-title">1.6b 上述容量數字的「能量定義基準」是？</div>
-        <div class="q-note">同一個 MWh 數字，量測位置與時間點不同，實際可用電量差很多——請對照下圖選擇。</div>
+      <div class="q" data-no="1.5" data-label="契約容量規劃" data-req="1">
+        <div class="q-title">1.5 契約容量：現在多少、想降到多少？ <span class="req">＊</span></div>
+        <div class="q-note">這是試算降容效益的核心數字（見電費單「經常契約」欄位）。目標值不確定可留白，由顧問依用電曲線反推。</div>
         <div class="fig">
-          <svg viewBox="0 0 780 210" width="100%" role="img" aria-label="能量定義基準示意圖：DC側到併網點、BOL到EOL">
+          <svg viewBox="0 0 780 190" width="100%" role="img" aria-label="契約容量調降與緩衝安全係數示意圖">
             <g font-size="12.5" text-anchor="middle">
-              <rect x="20" y="40" width="130" height="66" rx="10" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/>
-              <text x="85" y="68" font-weight="800" fill="var(--green)">電池系統</text>
-              <text x="85" y="88" fill="var(--muted)">DC 直流側</text>
-              <path d="M152 73 h48" stroke="var(--muted)" stroke-width="2.5"/><path d="M204 73l-9-6v12z" fill="var(--muted)"/>
-              <rect x="208" y="46" width="100" height="54" rx="10" fill="#fff" stroke="var(--line)" stroke-width="2"/>
-              <text x="258" y="78" font-weight="700">PCS</text>
-              <path d="M310 73 h48" stroke="var(--muted)" stroke-width="2.5"/><path d="M362 73l-9-6v12z" fill="var(--muted)"/>
-              <rect x="366" y="46" width="100" height="54" rx="10" fill="#fff" stroke="var(--line)" stroke-width="2"/>
-              <text x="416" y="78" font-weight="700">變壓器</text>
-              <path d="M468 73 h48" stroke="var(--muted)" stroke-width="2.5"/><path d="M520 73l-9-6v12z" fill="var(--muted)"/>
-              <rect x="524" y="40" width="130" height="66" rx="10" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2"/>
-              <text x="589" y="68" font-weight="800" fill="var(--teal)">POC 併網點</text>
-              <text x="589" y="88" fill="var(--muted)">AC 交流側</text>
-              <text x="85" y="128" fill="var(--green)" font-weight="700">↑ ①額定 ②DC側可用</text>
-              <text x="589" y="128" fill="var(--teal)" font-weight="700">↑ ③④ POC 可用</text>
-              <rect x="130" y="152" width="440" height="16" rx="8" fill="url(#degrade)"/>
-              <defs><linearGradient id="degrade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0f8f70"/><stop offset="1" stop-color="#e25f48"/></linearGradient></defs>
-              <text x="112" y="165" text-anchor="end" font-weight="800" fill="var(--green)">BOL 壽命初期</text>
-              <text x="588" y="165" text-anchor="start" font-weight="800" fill="var(--coral)">EOL 壽命末期</text>
-              <text x="350" y="196" fill="var(--muted)">電池容量隨使用逐年衰減 → ③與④的差別在「保證的時間點」</text>
+              <line x1="60" y1="160" x2="720" y2="160" stroke="var(--line)" stroke-width="2"/>
+              <rect x="120" y="40" width="150" height="120" rx="8" fill="var(--grey-bar)"/>
+              <text x="195" y="30" font-weight="800" fill="var(--muted)">現況契約容量</text>
+              <text x="195" y="182" fill="var(--muted)">例：1,500 kW</text>
+              <rect x="420" y="70" width="150" height="90" rx="8" fill="var(--green)"/>
+              <text x="495" y="60" font-weight="900" fill="var(--green)">希望調降至</text>
+              <text x="495" y="182" fill="var(--muted)">例：1,200 kW</text>
+              <rect x="420" y="70" width="150" height="16" fill="var(--amber)" opacity=".85"/>
+              <text x="668" y="82" font-weight="700" fill="#b07708" text-anchor="start">← 緩衝安全係數</text>
+              <text x="668" y="99" font-size="11" fill="var(--muted)" text-anchor="start">預留 5~10% 給突發尖峰</text>
+              <path d="M280 80 C 330 62 370 62 412 76" stroke="var(--coral)" stroke-width="3" fill="none"/>
+              <path d="M416 78l-12-2 5-11z" fill="var(--coral)"/>
+              <text x="345" y="52" font-weight="800" fill="var(--coral)">降容＝基本電費永久下降</text>
             </g>
           </svg>
+          <div class="cap">Part 4 案例即為 1,500 → 1,200 kW、預留 5~10%（60~120 kW）緩衝</div>
         </div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q1_6b" value="額定能量 (nameplate energy)"><span>① 額定能量（nameplate energy）</span></label>
-          <label class="opt"><input type="radio" name="q1_6b" value="直流側可用能量 (usable energy @DC side)"><span>② 直流側可用能量（usable energy @DC side）</span></label>
-          <label class="opt"><input type="radio" name="q1_6b" value="併網點壽命初期可用能量 (usable @POC@BOL)"><span>③ 併網點壽命初期可用能量（usable energy @POC@BOL）</span></label>
-          <label class="opt"><input type="radio" name="q1_6b" value="併網點壽命末期可用能量 (usable @POC@EOL)"><span>④ 併網點壽命末期可用能量（usable energy @POC@EOL）</span></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="1.7" data-label="供貨範圍">
-        <div class="q-title">1.7 供貨範圍</div>
-        <div class="q-note">若 PCS 及中壓站不在我方供貨範圍，請另提供其規格書／技術資料表以利匹配。</div>
-        <div class="fig">
-          <svg viewBox="0 0 780 170" width="100%" role="img" aria-label="供貨範圍示意圖">
-            <g font-size="13" text-anchor="middle">
-              <rect x="40" y="20" width="190" height="60" rx="10" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/>
-              <text x="135" y="55" font-weight="800" fill="var(--green)">電池櫃</text>
-              <rect x="290" y="20" width="190" height="60" rx="10" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2"/>
-              <text x="385" y="55" font-weight="800" fill="var(--teal)">PCS</text>
-              <rect x="540" y="20" width="190" height="60" rx="10" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="2"/>
-              <text x="635" y="55" font-weight="800" fill="#b07708">中壓站</text>
-              <path d="M40 104 h190" stroke="var(--green)" stroke-width="3"/><text x="135" y="126" fill="var(--green)" font-weight="700">方案 A：僅電池櫃</text>
-              <path d="M40 138 h440" stroke="var(--teal)" stroke-width="3"/><text x="260" y="160" fill="var(--teal)" font-weight="700">方案 B：電池櫃＋PCS</text>
-              <path d="M520 138 h210" stroke="var(--amber)" stroke-width="3" stroke-dasharray="6 5"/><text x="622" y="160" fill="#b07708" font-weight="700">方案 C：再＋中壓站</text>
-            </g>
-          </svg>
-        </div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q1_7" value="僅電池櫃 (Battery Containers)"><span>方案 A｜僅電池櫃（Battery Containers）</span></label>
-          <label class="opt"><input type="radio" name="q1_7" value="電池櫃＋PCS (Battery Containers + PCS)"><span>方案 B｜電池櫃＋PCS</span></label>
-          <label class="opt"><input type="radio" name="q1_7" value="電池櫃＋PCS＋中壓站 (Battery Containers + PCS & MV Stations)"><span>方案 C｜電池櫃＋PCS＋中壓站</span></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="1.8" data-label="技術應用場景（是否併聯其他系統）">
-        <div class="q-title">1.8 技術應用場景：是否併聯搭配其他系統？</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q1_8" value="獨立電網級儲能 (Standalone Utility-scale ESS)"><span>獨立電網級儲能系統（Standalone Utility-scale ESS）</span></label>
-          <label class="opt"><input type="radio" name="q1_8" value="儲能搭配太陽光電或風電"><span>儲能搭配太陽光電／風電：</span>
-            <span class="lab">光電</span><input type="number" class="tin inline" style="width:90px" data-k="太陽光電(MW)" step="any" min="0"><span class="lab">MW，風電</span><input type="number" class="tin inline" style="width:90px" data-k="風電(MW)" step="any" min="0"><span class="lab">MW</span></label>
-          <label class="opt"><input type="radio" name="q1_8" value="工商業儲能 (C&I ESS)"><span>工商業儲能（C&amp;I ESS）：</span>
-            <span class="lab">負載</span><input type="number" class="tin inline" style="width:90px" data-k="負載功率(MW)" step="any" min="0"><span class="lab">MW，備援</span><input type="number" class="tin inline" style="width:90px" data-k="備援時長(小時)" step="any" min="0"><span class="lab">小時</span></label>
-          <label class="opt"><input type="radio" name="q1_8" value="搭配其他電源"><span>搭配其他電源（火力／水力／柴油發電機等）：</span><input type="text" class="tin inline" style="width:200px" data-k="其他電源說明" placeholder="請說明"></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="1.9" data-label="商業運轉情境（可複選）">
-        <div class="q-title">1.9 商業運轉情境（可複選）</div>
-        <div class="q-note">可對照 Part 2 的三層效益架構勾選；不確定者可先勾「削峰填谷」＋「需量反應」。</div>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="q1_9" value="削峰填谷 (Peak Shifting)"><span>削峰填谷（Peak Shifting）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="電能套利 (Energy Arbitrage)"><span>電能套利（Energy Arbitrage）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="需量反應 (Demand Response)"><span>需量反應（Demand Response）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="備用電力 (Back-up Power)"><span>備用電力（Back-up Power）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="調頻 (Frequency Regulation)"><span>調頻（Frequency Regulation）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="備轉服務 (Reserve Service)"><span>備轉服務（Reserve Service）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="無功補償 (Reactive Power Compensation)"><span>無功補償（Reactive Power Compensation）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="資源適足性 (Resource Adequacy)"><span>資源適足性（Resource Adequacy）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="儲能容量租賃 (Capacity for Rent)"><span>儲能容量租賃（Energy Storage Capacity for Rent）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="虛擬慣量 (Virtual Inertia)"><span>虛擬慣量（Virtual Inertia）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="黑啟動 (Black Start)"><span>黑啟動（Black Start）</span></label>
-          <label class="opt"><input type="checkbox" name="q1_9" value="其他"><span>其他：</span><input type="text" class="tin inline" data-k="其他情境" placeholder="請說明"></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="1.10" data-label="預計交貨時間">
-        <div class="q-title">1.10 預計交貨時間</div>
-        <div class="inrow"><input type="month" class="tin" data-k="預計交貨" style="max-width:220px"></div>
-      </div>
-
-      <div class="q" data-no="1.11" data-label="儲能系統可用場地面積">
-        <div class="q-title">1.11 儲能系統可用場地面積</div>
-        <div class="q-note">若有場地總平面圖，請於送出後另以 Email 提供。</div>
         <div class="inrow">
-          <span class="lab">長</span><input type="number" class="tin inline" style="width:100px" data-k="長(公尺)" step="any" min="0"><span class="lab">公尺 ×</span>
-          <span class="lab">寬</span><input type="number" class="tin inline" style="width:100px" data-k="寬(公尺)" step="any" min="0"><span class="lab">公尺</span>
+          <span class="lab">現況契約容量</span><input type="number" class="tin inline" data-k="現況契約容量(kW)" step="any" min="0"><span class="lab">kW</span>
+          <span class="lab">希望調降至</span><input type="number" class="tin inline" data-k="希望調降至(kW)" step="any" min="0"><span class="lab">kW（可留白）</span>
+        </div>
+        <div class="opts" style="margin-top:8px">
+          <label class="opt"><input type="radio" name="q1_5c" value="緩衝 5%（積極降容）"><span>緩衝安全係數 5%（積極降容，效益最大）</span></label>
+          <label class="opt"><input type="radio" name="q1_5c" value="緩衝 10%（保守穩健）"><span>緩衝安全係數 10%（保守穩健，突發餘裕大）</span></label>
+          <label class="opt"><input type="radio" name="q1_5c" value="不確定，由顧問試算建議"><span>不確定，由顧問試算建議</span></label>
+        </div>
+      </div>
+
+      <div class="q" data-no="1.6" data-label="目前電價方案">
+        <div class="q-title">1.6 目前的電價方案是？</div>
+        <div class="q-note">看電費單左上角。批次生產電價的尖離峰價差最大（Part 2 第 5 頁），套利效益最好。</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1_6" value="高壓三段式時間電價"><span>高壓三段式時間電價</span></label>
+          <label class="opt"><input type="radio" name="q1_6" value="低壓三段式時間電價"><span>低壓三段式時間電價</span></label>
+          <label class="opt"><input type="radio" name="q1_6" value="批次生產時間電價"><span>批次生產時間電價</span></label>
+          <label class="opt"><input type="radio" name="q1_6" value="其他／不確定"><span>其他／不確定：</span><input type="text" class="tin inline" data-k="電價方案說明" placeholder="可留白"></label>
+        </div>
+      </div>
+
+      <div class="q" data-no="1.7" data-label="合作商業模式">
+        <div class="q-title">1.7 您偏好的合作模式是？</div>
+        <div class="fig">
+          <svg viewBox="0 0 780 168" width="100%" role="img" aria-label="買設備與統包工程兩種商業模式範圍示意">
+            <g font-size="12.5" text-anchor="middle">
+              <rect x="30" y="20" width="165" height="56" rx="10" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/>
+              <text x="112" y="44" font-weight="800" fill="var(--green)">ATMOCE 設備</text>
+              <text x="112" y="62" font-size="11" fill="var(--muted)">電池模組＋EMS</text>
+              <rect x="215" y="20" width="165" height="56" rx="10" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+              <text x="297" y="44" font-weight="700">系統設計</text>
+              <text x="297" y="62" font-size="11" fill="var(--muted)">容量試算・單線圖</text>
+              <rect x="400" y="20" width="165" height="56" rx="10" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+              <text x="482" y="44" font-weight="700">安裝併接</text>
+              <text x="482" y="62" font-size="11" fill="var(--muted)">施工・台電申請</text>
+              <rect x="585" y="20" width="165" height="56" rx="10" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+              <text x="667" y="44" font-weight="700">維運保固</text>
+              <text x="667" y="62" font-size="11" fill="var(--muted)">監控・保養</text>
+              <path d="M30 104 h165" stroke="var(--green)" stroke-width="3.5"/>
+              <text x="112" y="126" fill="var(--green)" font-weight="800">模式 A｜只買設備</text>
+              <text x="112" y="143" font-size="11" fill="var(--muted)">安裝由貴司或既有電機廠商執行</text>
+              <path d="M30 152 h720" stroke="var(--teal)" stroke-width="3.5"/>
+              <text x="390" y="168" fill="var(--teal)" font-weight="800" font-size="12">模式 B｜統包工程：設備＋設計＋安裝併接＋維運一條龍</text>
+            </g>
+          </svg>
+        </div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1_7" value="模式A：只買設備"><span>模式 A｜只買設備（自行或委由既有電機廠商安裝）</span></label>
+          <label class="opt"><input type="radio" name="q1_7" value="模式B：統包工程"><span>模式 B｜統包工程（設計、安裝、併接、維運一條龍）</span></label>
+          <label class="opt"><input type="radio" name="q1_7" value="未定，先比較方案"><span>未定，想先看兩種方案的報價比較</span></label>
+        </div>
+      </div>
+
+      <div class="q" data-no="1.8" data-label="用電資料提供">
+        <div class="q-title">1.8 能否提供用電資料？（試算的第一步）</div>
+        <div class="q-note">Part 4 案例的導入流程第一步就是「資料盤點」：最近 12 個月電費單＋15 分鐘 AMI 需量資料。</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1_8" value="可提供電費單＋15分鐘AMI資料"><span>可提供 12 個月電費單＋15 分鐘 AMI 需量資料</span></label>
+          <label class="opt"><input type="radio" name="q1_8" value="有電費單，AMI需協助申請"><span>有電費單，AMI 資料需要協助向台電申請</span></label>
+          <label class="opt"><input type="radio" name="q1_8" value="暫時無法提供"><span>暫時無法提供，先做粗估</span></label>
+        </div>
+      </div>
+
+      <div class="q" data-no="1.9" data-label="期望用途（可複選）">
+        <div class="q-title">1.9 期望儲能幫您做什麼？(可複選)</div>
+        <div class="q-note">對應 Part 2 的三層效益：先止血 → 再套利 → 疊加收益。</div>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="q1_9" value="防超約／調降契約容量（省基本電費）"><span>防超約、調降契約容量（省基本電費）</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="時間電價套利（離峰充、尖峰放）"><span>時間電價套利（離峰充電、尖峰放電）</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="需量反應／電力交易收益"><span>需量反應、參與電力交易平台賺收益</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="停電備援（產線不中斷）"><span>停電備援（關鍵產線不中斷）</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="太陽光電自用最大化（不降載）"><span>太陽光電自用最大化（不降載、多賺憑證）</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="用電大戶義務履行（≥5,000kW）"><span>用電大戶義務履行（契約 ≥5,000kW，見 Part 1）</span></label>
+          <label class="opt"><input type="checkbox" name="q1_9" value="其他"><span>其他：</span><input type="text" class="tin inline" data-k="其他用途" placeholder="請說明"></label>
+        </div>
+      </div>
+
+      <div class="q" data-no="1.10" data-label="預計導入時間">
+        <div class="q-title">1.10 預計導入時間</div>
+        <div class="inrow"><input type="month" class="tin" data-k="預計導入" style="max-width:220px"></div>
+      </div>
+
+      <div class="q" data-no="1.11" data-label="可設置場地">
+        <div class="q-title">1.11 預計設置場地</div>
+        <div class="q-note">ATMOCE 為 IP66 戶外機，牆邊、屋簷下皆可；單塔佔地僅 0.88 m²。</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1_11" value="戶外地面（牆邊／空地）"><span>戶外地面（牆邊、空地）</span></label>
+          <label class="opt"><input type="radio" name="q1_11" value="屋頂"><span>屋頂</span></label>
+          <label class="opt"><input type="radio" name="q1_11" value="室內機房"><span>室內機房</span></label>
+          <label class="opt"><input type="radio" name="q1_11" value="尚未決定"><span>尚未決定</span></label>
+        </div>
+        <div class="inrow">
+          <span class="lab">可用空間約　長</span><input type="number" class="tin inline" style="width:90px" data-k="長(公尺)" step="any" min="0"><span class="lab">公尺 × 寬</span>
+          <input type="number" class="tin inline" style="width:90px" data-k="寬(公尺)" step="any" min="0"><span class="lab">公尺（可留白）</span>
         </div>
       </div>
 
       <!-- ===== 第2節 ===== -->
-      <div class="fsec"><h2>第 2 節：氣候條件</h2><p>用於判定降額（derating）、防腐等級與環控設計。</p></div>
+      <div class="fsec"><h2>第 2 節：場址環境（台灣場域版）</h2><p>僅保留影響防腐與基座設計的必要題目。</p></div>
 
-      <div class="q" data-no="2.1" data-label="海拔高度">
-        <div class="q-title">2.1 海拔高度</div>
-        <div class="q-note">海拔超過 2,000 公尺需降額使用（derating）。</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q2_1" value="≤2,000公尺（不需降額）"><span>≤ 2,000 公尺（不需降額）</span></label>
-          <label class="opt"><input type="radio" name="q2_1" value=">2,000公尺（需降額）"><span>＞ 2,000 公尺（需降額）——實際海拔</span><input type="number" class="tin inline" style="width:110px" data-k="實際海拔(公尺)" step="any"><span class="lab">公尺</span></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="2.2" data-label="極端溫度">
-        <div class="q-title">2.2 當地極端溫度</div>
-        <div class="q-note">產品可運作溫度範圍：-30℃ ～ 55℃。</div>
-        <div class="inrow">
-          <span class="lab">歷史最高</span><input type="number" class="tin inline" style="width:90px" data-k="最高溫(℃)" step="any"><span class="lab">℃</span>
-          <span class="lab">歷史最低</span><input type="number" class="tin inline" style="width:90px" data-k="最低溫(℃)" step="any"><span class="lab">℃</span>
-        </div>
-      </div>
-
-      <div class="q" data-no="2.3" data-label="濕度">
-        <div class="q-title">2.3 濕度</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q2_3" value="≤85%，無凝結"><span>≤ 85%，無凝結</span></label>
-          <label class="opt"><input type="radio" name="q2_3" value="85%～95%"><span>85% ～ 95%</span></label>
-          <label class="opt"><input type="radio" name="q2_3" value=">95%"><span>＞ 95%</span></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="2.4" data-label="年累積降雨量">
-        <div class="q-title">2.4 年累積降雨量</div>
-        <div class="inrow"><input type="number" class="tin inline" data-k="年降雨量(mm)" step="any" min="0"><span class="lab">毫米（mm）</span></div>
-      </div>
-
-      <div class="q" data-no="2.5" data-label="鹽霧或潮濕環境（防腐等級）">
-        <div class="q-title">2.5 鹽霧或潮濕環境</div>
-        <div class="q-note">用以判定防腐等級——離海（鹽霧）越近，腐蝕越強，請對照下圖選擇。</div>
+      <div class="q" data-no="2.1" data-label="距海岸距離（防腐等級）">
+        <div class="q-title">2.1 廠址離海多遠？</div>
+        <div class="q-note">決定機櫃防腐等級——離海越近、鹽霧腐蝕越強，請對照下圖選擇。</div>
         <div class="fig">
-          <svg viewBox="0 0 780 150" width="100%" role="img" aria-label="海岸距離與腐蝕等級示意圖">
+          <svg viewBox="0 0 780 130" width="100%" role="img" aria-label="海岸距離與腐蝕等級示意圖">
             <g font-size="12">
               <path d="M20 40 q20 -12 40 0 t40 0" stroke="var(--teal)" stroke-width="3" fill="none"/>
               <path d="M20 56 q20 -12 40 0 t40 0" stroke="var(--teal)" stroke-width="3" fill="none" opacity=".55"/>
-              <text x="60" y="90" text-anchor="middle" font-weight="800" fill="var(--teal)">海／湖</text>
+              <text x="60" y="90" text-anchor="middle" font-weight="800" fill="var(--teal)">海</text>
               <rect x="120" y="30" width="160" height="34" rx="8" fill="var(--coral)"/><text x="200" y="52" text-anchor="middle" fill="#fff" font-weight="800">0–3 km｜腐蝕最強</text>
               <rect x="290" y="30" width="160" height="34" rx="8" fill="var(--amber)"/><text x="370" y="52" text-anchor="middle" fill="#fff" font-weight="800">3–10 km｜中</text>
               <rect x="460" y="30" width="150" height="34" rx="8" fill="var(--amber-soft)"/><text x="535" y="52" text-anchor="middle" fill="#b07708" font-weight="800">10–20 km｜低</text>
               <rect x="620" y="30" width="140" height="34" rx="8" fill="var(--green-soft)"/><text x="690" y="52" text-anchor="middle" fill="var(--green)" font-weight="800">&gt;20 km｜內陸</text>
               <line x1="120" y1="80" x2="760" y2="80" stroke="var(--line)" stroke-width="2"/>
               <text x="120" y="100" fill="var(--muted)">0</text><text x="280" y="100" fill="var(--muted)">3 km</text><text x="450" y="100" fill="var(--muted)">10 km</text><text x="612" y="100" fill="var(--muted)">20 km</text>
-              <text x="400" y="132" text-anchor="middle" fill="var(--muted)">距湖岸／淡水水域另有獨立選項（腐蝕型態不同）</text>
             </g>
           </svg>
         </div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q2_5" value="距海岸 ≤3公里"><span>距海岸 ≤ 3 公里</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="距海岸 3～10公里"><span>距海岸 3 ～ 10 公里</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="距海岸 10～20公里"><span>距海岸 10 ～ 20 公里</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="內陸，或距海岸 >20公里"><span>內陸，或距海岸 ＞ 20 公里</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="距湖岸 ≤3公里"><span>距湖岸 ≤ 3 公里</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="距湖岸 <100公尺"><span>距湖岸 ＜ 100 公尺</span></label>
-          <label class="opt"><input type="radio" name="q2_5" value="位於淡水水域上方"><span>位於淡水水域上方</span></label>
+          <label class="opt"><input type="radio" name="q2_1" value="距海岸 ≤3公里"><span>距海岸 ≤ 3 公里</span></label>
+          <label class="opt"><input type="radio" name="q2_1" value="距海岸 3～10公里"><span>距海岸 3 ～ 10 公里</span></label>
+          <label class="opt"><input type="radio" name="q2_1" value="距海岸 10～20公里"><span>距海岸 10 ～ 20 公里</span></label>
+          <label class="opt"><input type="radio" name="q2_1" value="內陸，或距海岸 >20公里"><span>內陸，或距海岸 ＞ 20 公里</span></label>
         </div>
       </div>
 
-      <div class="q" data-no="2.6" data-label="是否採海運">
-        <div class="q-title">2.6 是否採海運</div>
+      <div class="q" data-no="2.2" data-label="特殊污染源（可複選）">
+        <div class="q-title">2.2 廠區周邊有特殊污染源嗎？(可複選)</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q2_6" value="是"><span>是</span></label>
-          <label class="opt"><input type="radio" name="q2_6" value="否"><span>否</span></label>
+          <label class="opt"><input type="checkbox" name="q2_2" value="無特殊污染"><span>無特殊污染</span></label>
+          <label class="opt"><input type="checkbox" name="q2_2" value="多塵（砂石、木工、水泥等）"><span>多塵（砂石、木工、水泥等）</span></label>
+          <label class="opt"><input type="checkbox" name="q2_2" value="化學腐蝕氣體"><span>化學腐蝕氣體（電鍍、酸洗、化工等）：</span><input type="text" class="tin inline" data-k="腐蝕氣體說明" placeholder="請說明"></label>
         </div>
       </div>
 
-      <div class="q" data-no="2.7" data-label="污染等級（可複選）">
-        <div class="q-title">2.7 污染環境（可複選）</div>
+      <div class="q" data-no="2.3" data-label="場址淹水紀錄">
+        <div class="q-title">2.3 場址曾有淹水或積水紀錄嗎？</div>
+        <div class="q-note">影響基座墊高與設置位置設計。</div>
         <div class="opts">
-          <label class="opt"><input type="checkbox" name="q2_7" value="無"><span>無特殊污染</span></label>
-          <label class="opt"><input type="checkbox" name="q2_7" value="多塵"><span>多塵</span></label>
-          <label class="opt"><input type="checkbox" name="q2_7" value="沙塵暴"><span>沙塵暴</span></label>
-          <label class="opt"><input type="checkbox" name="q2_7" value="其他化學腐蝕"><span>其他化學腐蝕：</span><input type="text" class="tin inline" data-k="化學腐蝕說明" placeholder="請說明"></label>
+          <label class="opt"><input type="radio" name="q2_3" value="無"><span>無</span></label>
+          <label class="opt"><input type="radio" name="q2_3" value="曾積水或位於低窪區"><span>曾積水，或位於低窪、易淹水區域</span></label>
+          <label class="opt"><input type="radio" name="q2_3" value="不確定"><span>不確定</span></label>
         </div>
-        <div class="inrow"><span class="lab">若已知 IEC 污染等級，請填：</span><input type="text" class="tin inline" data-k="污染等級" placeholder="如 PD2 / PD3"></div>
-      </div>
-
-      <div class="q" data-no="2.8" data-label="地震烈度">
-        <div class="q-title">2.8 地震烈度</div>
-        <div class="inrow"><input type="text" class="tin wide" placeholder="如：耐震設計地震力係數、烈度分級，或填「依台灣建築耐震規範」"></div>
       </div>
 
       <!-- ===== 第3節 ===== -->
-      <div class="fsec"><h2>第 3 節：儲能系統（ESS）技術需求</h2><p>C-rate、電壓、併網型態等核心配置參數。</p></div>
+      <div class="fsec"><h2>第 3 節：現地電力與 ATMOCE 適配</h2><p>只問現地狀況——產品固定規格（液冷、1500V、效率）不需您回答。</p></div>
 
-      <div class="q" data-no="3.1" data-label="充放電倍率 C-rate">
-        <div class="q-title">3.1 充放電倍率（C-rate）</div>
-        <div class="q-note">C-rate 與放電時數互為倒數：P 值越大＝放電越快、支撐時間越短。台灣表後應用常見 0.5P（2 小時）。</div>
+      <div class="q" data-no="3.1" data-label="廠內電源型式">
+        <div class="q-title">3.1 廠內的電源型式是？</div>
+        <div class="q-note">三相三線用戶可直接用 MS-16K-Delta，<b>免升壓、免騰地</b>（Part 3 賣點三）。不確定就選最後一項，顧問到場量測。</div>
         <div class="fig">
-          <svg viewBox="0 0 780 168" width="100%" role="img" aria-label="C-rate 與放電時數對照圖">
-            <g font-size="13">
-              <text x="20" y="34" font-weight="700">0.25P</text><rect x="90" y="20" width="640" height="20" rx="10" fill="var(--grey-bar)"/><text x="742" y="35" font-weight="700" fill="var(--muted)">4 小時</text>
-              <text x="20" y="72" font-weight="700">0.33P</text><rect x="90" y="58" width="480" height="20" rx="10" fill="var(--grey-bar)"/><text x="582" y="73" font-weight="700" fill="var(--muted)">3 小時</text>
-              <text x="20" y="110" font-weight="800" fill="var(--coral)">0.5P</text><rect x="90" y="96" width="320" height="20" rx="10" fill="var(--coral)"/><text x="422" y="111" font-weight="800" fill="var(--coral)">2 小時（常見）</text>
-              <text x="20" y="148" font-weight="700">0.67P</text><rect x="90" y="134" width="240" height="20" rx="10" fill="var(--grey-bar)"/><text x="342" y="149" font-weight="700" fill="var(--muted)">1.5 小時</text>
+          <svg viewBox="0 0 780 190" width="100%" role="img" aria-label="三相三線與三相四線示意圖">
+            <g font-size="12" text-anchor="middle">
+              <rect x="40" y="14" width="320" height="160" rx="12" fill="var(--green-soft)" stroke="var(--green)" stroke-width="2"/>
+              <text x="200" y="40" font-weight="800" fill="var(--green)">三相三線 220V（Delta）</text>
+              <path d="M200 58 L160 122 L240 122 Z" fill="none" stroke="var(--green)" stroke-width="3"/>
+              <circle cx="200" cy="58" r="4.5" fill="var(--green)"/><circle cx="160" cy="122" r="4.5" fill="var(--green)"/><circle cx="240" cy="122" r="4.5" fill="var(--green)"/>
+              <text x="200" y="146" font-weight="700">3 條線｜常見於中小型工廠</text>
+              <text x="200" y="166" fill="var(--green)" font-weight="800">MS-16K-Delta 原生支援 ✓</text>
+              <rect x="420" y="14" width="320" height="160" rx="12" fill="#fff" stroke="var(--line)" stroke-width="2"/>
+              <text x="580" y="40" font-weight="800" fill="var(--muted)">三相四線 380V（Wye）</text>
+              <path d="M580 108 L580 58 M580 108 L544 132 M580 108 L616 132" stroke="var(--grey-bar)" stroke-width="3" fill="none"/>
+              <circle cx="580" cy="58" r="4.5" fill="var(--grey-bar)"/><circle cx="544" cy="132" r="4.5" fill="var(--grey-bar)"/><circle cx="616" cy="132" r="4.5" fill="var(--grey-bar)"/>
+              <circle cx="580" cy="108" r="5" fill="var(--muted)"/>
+              <text x="580" y="152" font-weight="700" fill="var(--muted)">4 條線（含中性線）</text>
+              <text x="580" y="168" fill="var(--muted)">MS-16K-U 對應</text>
             </g>
           </svg>
         </div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_1" value="0.25P（4小時）"><span>0.25P（4 小時）</span></label>
-          <label class="opt"><input type="radio" name="q3_1" value="0.33P（3小時）"><span>0.33P（3 小時）</span></label>
-          <label class="opt"><input type="radio" name="q3_1" value="0.5P（2小時）"><span>0.5P（2 小時）</span></label>
-          <label class="opt"><input type="radio" name="q3_1" value="0.67P（1.5小時）"><span>0.67P（1.5 小時）</span></label>
-          <label class="opt"><input type="radio" name="q3_1" value="其他"><span>其他：充電</span><input type="number" class="tin inline" style="width:70px" data-k="充電P" step="any" min="0"><span class="lab">P，放電</span><input type="number" class="tin inline" style="width:70px" data-k="放電P" step="any" min="0"><span class="lab">P</span></label>
+          <label class="opt"><input type="radio" name="q3_1" value="三相三線 220V"><span>三相三線 220V（老廠常見；電費單或配電盤可判斷）</span></label>
+          <label class="opt"><input type="radio" name="q3_1" value="三相四線 380V"><span>三相四線 380V</span></label>
+          <label class="opt"><input type="radio" name="q3_1" value="高壓用戶（自備變壓器）"><span>高壓用戶（有自備變壓器，低壓側個案確認）</span></label>
+          <label class="opt"><input type="radio" name="q3_1" value="不確定，請顧問到場確認"><span>不確定，請顧問到場量測確認</span></label>
         </div>
       </div>
 
-      <div class="q" data-no="3.2" data-label="使用頻率（循環次數）">
-        <div class="q-title">3.2 儲能系統使用頻率（擇一填寫即可）</div>
-        <div class="inrow">
-          <input type="number" class="tin inline" style="width:90px" data-k="循環次數/天" step="any" min="0"><span class="lab">循環次數／天，或</span>
-          <input type="number" class="tin inline" style="width:90px" data-k="循環次數/年" step="any" min="0"><span class="lab">循環次數／年</span>
-        </div>
-      </div>
-
-      <div class="q" data-no="3.3" data-label="專案預期壽命">
-        <div class="q-title">3.3 專案預期壽命（擇一填寫即可）</div>
-        <div class="inrow">
-          <input type="number" class="tin inline" style="width:90px" data-k="年" step="any" min="0"><span class="lab">年，或全生命週期共</span>
-          <input type="number" class="tin inline" style="width:110px" data-k="總循環次數" step="any" min="0"><span class="lab">次循環</span>
-        </div>
-      </div>
-
-      <div class="q" data-no="3.4" data-label="電池櫃冷卻方式">
-        <div class="q-title">3.4 電池櫃冷卻方式</div>
-        <div class="q-note">目前僅提供液冷產品。</div>
+      <div class="q" data-no="3.2" data-label="超約與罰款經驗">
+        <div class="q-title">3.2 曾經超約被罰嗎？</div>
+        <div class="q-note">超出契約 10% 以內罰 2 倍、超過 10% 罰 3 倍基本電費（Part 2 第 3 頁）——這是儲能最先幫您止血的地方。</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_4" value="液冷 (Liquid cooled)"><span>液冷（Liquid cooled）</span></label>
-          <label class="opt"><input type="radio" name="q3_4" value="風冷 (Air cooled)"><span>風冷（Air cooled）</span></label>
+          <label class="opt"><input type="radio" name="q3_2" value="幾乎每月超約"><span>幾乎每月超約</span></label>
+          <label class="opt"><input type="radio" name="q3_2" value="偶爾超約（旺季／夏月）"><span>偶爾超約（旺季、夏月）</span></label>
+          <label class="opt"><input type="radio" name="q3_2" value="未超約但需量常逼近上限"><span>沒被罰過，但需量常逼近契約上限</span></label>
+          <label class="opt"><input type="radio" name="q3_2" value="沒有超約問題"><span>沒有超約問題</span></label>
+          <label class="opt"><input type="radio" name="q3_2" value="不確定"><span>不確定（顧問可從電費單判讀）</span></label>
         </div>
+        <div class="inrow"><span class="lab">若知道，近一年超約罰款約</span><input type="number" class="tin inline" data-k="年罰款約(元)" step="any" min="0"><span class="lab">元（可留白）</span></div>
       </div>
 
-      <div class="q" data-no="3.5" data-label="最大直流電壓">
-        <div class="q-title">3.5 最大直流電壓</div>
-        <div class="q-note">目前僅提供 1500V 產品。</div>
+      <div class="q" data-no="3.3" data-label="太陽光電現況">
+        <div class="q-title">3.3 廠區有太陽光電嗎？</div>
+        <div class="q-note">自發自用的光電加儲能可「不降載、多賺憑證」（Part 3 賣點二）。</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_5" value="1500V"><span>1500V</span></label>
-          <label class="opt"><input type="radio" name="q3_5" value="1000V"><span>1000V</span></label>
+          <label class="opt"><input type="radio" name="q3_3" value="已建置"><span>已建置：容量約</span><input type="number" class="tin inline" style="width:90px" data-k="光電容量(kW)" step="any" min="0"><span class="lab">kW，運轉方式</span><input type="text" class="tin inline" style="width:170px" data-k="運轉方式" placeholder="躉售／自用／混合"></label>
+          <label class="opt"><input type="radio" name="q3_3" value="規劃中"><span>規劃中</span></label>
+          <label class="opt"><input type="radio" name="q3_3" value="無"><span>無</span></label>
         </div>
       </div>
 
-      <div class="q" data-no="3.6" data-label="系統效率需求">
-        <div class="q-title">3.6 系統效率需求（擇一填寫即可）</div>
-        <div class="inrow">
-          <span class="lab">直流側</span><input type="number" class="tin inline" style="width:80px" data-k="直流側(%)" step="any" min="0" max="100"><span class="lab">%，或交流側</span>
-          <input type="number" class="tin inline" style="width:80px" data-k="交流側(%)" step="any" min="0" max="100"><span class="lab">%</span>
-        </div>
-      </div>
-
-      <div class="q" data-no="3.7" data-label="併網／離網運轉模式">
-        <div class="q-title">3.7 併網／離網運轉模式</div>
+      <div class="q" data-no="3.4" data-label="停電備援需求">
+        <div class="q-title">3.4 停電時需要儲能撐住關鍵設備嗎？</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_7" value="併網 (on-grid)"><span>併網（on-grid）</span></label>
-          <label class="opt"><input type="radio" name="q3_7" value="離網 (off-grid)"><span>離網（off-grid）</span></label>
-          <label class="opt"><input type="radio" name="q3_7" value="併網與離網並存"><span>併網與離網並存（on-grid and off-grid）——如微電網／孤島備援</span></label>
+          <label class="opt"><input type="radio" name="q3_4" value="需要"><span>需要：關鍵負載約</span><input type="number" class="tin inline" style="width:90px" data-k="關鍵負載(kW)" step="any" min="0"><span class="lab">kW，需支撐</span><input type="number" class="tin inline" style="width:80px" data-k="支撐時數(小時)" step="any" min="0"><span class="lab">小時</span></label>
+          <label class="opt"><input type="radio" name="q3_4" value="不需要"><span>不需要</span></label>
+          <label class="opt"><input type="radio" name="q3_4" value="不確定"><span>不確定</span></label>
         </div>
       </div>
 
-      <div class="q" data-no="3.8" data-label="交流輸出電壓">
-        <div class="q-title">3.8 交流輸出電壓</div>
-        <div class="inrow">
-          <select class="tin">
-            <option value="">請選擇…</option>
-            <option>220V</option><option>380V</option><option>400V</option>
-            <option>6kV</option><option>10kV</option><option>11kV</option>
-            <option>22.8kV（台灣常見配電）</option><option>33kV</option><option>35kV</option>
-            <option>66kV</option><option>69kV（台灣特高壓）</option><option>110kV</option><option>132kV</option>
-            <option value="其他">其他</option>
-          </select>
-          <input type="text" class="tin inline" data-k="其他電壓" placeholder="若選其他，請填 kV">
-        </div>
-      </div>
-
-      <div class="q" data-no="3.9" data-label="電網頻率">
-        <div class="q-title">3.9 電網頻率</div>
-        <div class="q-note">台灣電網為 60Hz。</div>
+      <div class="q" data-no="3.5" data-label="預期運轉強度">
+        <div class="q-title">3.5 預期的運轉強度？</div>
+        <div class="q-note">影響容量配置與壽命試算（ATMOCE 循環壽命 10,000 次，日循環 15 年用不完）。</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_9" value="60Hz"><span>60Hz</span></label>
-          <label class="opt"><input type="radio" name="q3_9" value="50Hz"><span>50Hz</span></label>
+          <label class="opt"><input type="radio" name="q3_5" value="每日 1 次循環（標準套利）"><span>每日 1 次循環（標準套利，同 Part 4 夏月排程）</span></label>
+          <label class="opt"><input type="radio" name="q3_5" value="每日 2 次循環（積極套利）"><span>每日 2 次循環（積極套利，同 Part 4 非夏月排程）</span></label>
+          <label class="opt"><input type="radio" name="q3_5" value="僅事件型防超約（低循環）"><span>僅事件型防超約（低循環，以守約為主）</span></label>
+          <label class="opt"><input type="radio" name="q3_5" value="不確定"><span>不確定，由顧問建議</span></label>
         </div>
       </div>
 
-      <div class="q" data-no="3.10" data-label="廠用電（輔助電源）供電方式">
-        <div class="q-title">3.10 廠用電（輔助電源）供電方式</div>
+      <div class="q" data-no="3.6" data-label="是否為用電大戶（≥5,000kW）">
+        <div class="q-title">3.6 貴公司是否屬於用電大戶（契約 ≥5,000kW）？</div>
+        <div class="q-note">是的話，儲能還可同時履行 Part 1 的法定義務、賺取 Part 2 第 8 頁的電費扣減——效益再疊一層。</div>
         <div class="opts">
-          <label class="opt"><input type="radio" name="q3_10" value="由 PCS 自供電 (Self-Powered by PCS)"><span>由 PCS 自供電（Self-Powered by PCS）</span></label>
-          <label class="opt"><input type="radio" name="q3_10" value="由站用變壓器供電 (Powered by station transformers)"><span>由站用變壓器供電（Powered by station transformers）</span></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="3.11" data-label="外部電網可用電壓">
-        <div class="q-title">3.11 外部電網可用電壓</div>
-        <div class="q-note">Solbank 電池櫃之廠用電採三相五線制 TN-S 系統。</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q3_11" value="三相380V"><span>三相 380V</span></label>
-          <label class="opt"><input type="radio" name="q3_11" value="三相400V"><span>三相 400V</span></label>
-          <label class="opt"><input type="radio" name="q3_11" value="三相480V"><span>三相 480V</span></label>
-          <label class="opt"><input type="radio" name="q3_11" value="其他"><span>其他：</span><input type="text" class="tin inline" data-k="其他電網電壓" placeholder="請說明"></label>
-        </div>
-      </div>
-
-      <div class="q" data-no="3.12" data-label="所需中壓變壓器類型">
-        <div class="q-title">3.12 所需中壓變壓器類型</div>
-        <div class="q-note">中國以外地區預設採用油浸式變壓器。</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q3_12" value="油浸式變壓器 (Oil-immersed)"><span>油浸式變壓器（Oil-immersed transformers）</span></label>
-          <label class="opt"><input type="radio" name="q3_12" value="乾式變壓器 (Dry type)"><span>乾式變壓器（Dry type transformers）</span></label>
-          <label class="opt"><input type="radio" name="q3_12" value="無限制"><span>無限制</span></label>
+          <label class="opt"><input type="radio" name="q3_6" value="是（≥5,000kW）"><span>是（單一電號或合併 ≥5,000kW）</span></label>
+          <label class="opt"><input type="radio" name="q3_6" value="否"><span>否</span></label>
+          <label class="opt"><input type="radio" name="q3_6" value="不確定（同法人多電號需確認）"><span>不確定（同一法人有多個電號，需合併確認）</span></label>
         </div>
       </div>
 
       <!-- ===== 第4節 ===== -->
-      <div class="fsec"><h2>第 4 節：商業條件</h2><p>交易條件與保固需求。</p></div>
+      <div class="fsec"><h2>第 4 節：特殊需求與補充</h2><p>保固由原廠提供（產品壽命 15 年），其他需求皆可在此說明。</p></div>
 
-      <div class="q" data-no="4.1" data-label="國貿條規 INCOTERMS (2020)">
-        <div class="q-title">4.1 國貿條規 INCOTERMS（2020）</div>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q4_1" value="FOB"><span>FOB，地點：</span><input type="text" class="tin inline" data-k="FOB地點" placeholder="港口／城市"></label>
-          <label class="opt"><input type="radio" name="q4_1" value="其他"><span>其他：</span><input type="text" class="tin inline" data-k="其他條規" placeholder="如 CIF / DDP＋地點"></label>
-        </div>
+      <div class="q" data-no="4.1" data-label="特殊需求">
+        <div class="q-title">4.1 特殊需求（開放填寫）</div>
+        <div class="inrow"><textarea class="tin" placeholder="例：消防法規、噪音限制、預算範圍、融資或租賃需求、決策時程…"></textarea></div>
       </div>
 
-      <div class="q" data-no="4.2" data-label="保固條款需求">
-        <div class="q-title">4.2 保固條款需求</div>
-        <div class="inrow"><textarea class="tin" placeholder="例：保固年限、容量保證（如 EOL 70%）、回應時間等"></textarea></div>
-      </div>
-
-      <!-- ===== 第5節 ===== -->
-      <div class="fsec"><h2>第 5 節：客戶特殊需求</h2><p>任何上述題目未涵蓋的需求，皆可在此說明。</p></div>
-
-      <div class="q" data-no="5.1" data-label="特殊需求（一）">
-        <div class="q-title">5.1 特殊需求（開放填寫）</div>
-        <div class="inrow"><textarea class="tin" placeholder="例：消防法規要求、噪音限制、併聯審查時程、融資條件…"></textarea></div>
-      </div>
-
-      <div class="q" data-no="5.2" data-label="特殊需求（二）">
-        <div class="q-title">5.2 其他補充（開放填寫）</div>
-        <div class="inrow"><textarea class="tin" placeholder="其他想讓顧問知道的資訊"></textarea></div>
+      <div class="q" data-no="4.2" data-label="其他補充">
+        <div class="q-title">4.2 其他想讓顧問知道的事</div>
+        <div class="inrow"><textarea class="tin" placeholder="任何補充資訊"></textarea></div>
       </div>
 
       <div class="fallback" id="fbPanel">
@@ -2270,7 +2168,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
   }
 
   function composeText(){
-    var lines = ['儲能系統（ESS）專案初步配置技術問卷 — 填寫結果',
+    var lines = ['儲能導入需求問卷（業主用戶版）— 填寫結果',
                  '填寫時間：'+new Date().toLocaleString('zh-TW'),
                  '來源：'+location.href.split('#')[0], ''];
     var nodes = formArea.querySelectorAll('.fsec, .q');
@@ -2289,11 +2187,11 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
 
   function projectName(){
     var q = formArea.querySelector('.q[data-no="1.4"] input');
-    return (q&&q.value.trim())||'未命名專案';
+    return (q&&q.value.trim())||'地點未填';
   }
   function clientName(){
     var q = formArea.querySelector('.q[data-no="1.1"] input');
-    return (q&&q.value.trim())||'未填客戶';
+    return (q&&q.value.trim())||'未填公司';
   }
 
   function validate(){
@@ -2312,7 +2210,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
     var blob = new Blob(['﻿'+text], {type:'text/plain;charset=utf-8'});
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'ESS問卷_'+projectName()+'_'+new Date().toISOString().slice(0,10)+'.txt';
+    a.download = 'ESS需求問卷_'+clientName()+'_'+new Date().toISOString().slice(0,10)+'.txt';
     document.body.appendChild(a); a.click();
     setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
   }
@@ -2330,7 +2228,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
       var btn = this;
       lastText = composeText();
       btn.disabled = true; btn.textContent = '寄出中…';
-      var subj = '【ESS問卷】'+projectName()+' - '+clientName();
+      var subj = '【ESS需求問卷】'+clientName()+' - '+projectName();
       fetch('https://formsubmit.co/ajax/'+MAIL_TO, {
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -2351,7 +2249,7 @@ select.tin{border:1px solid var(--line); border-radius:10px; padding:9px 10px; w
 
     document.getElementById('btnMailto').addEventListener('click', function(){
       lastText = lastText||composeText();
-      var subj = '【ESS問卷】'+projectName()+' - '+clientName();
+      var subj = '【ESS需求問卷】'+clientName()+' - '+projectName();
       location.href = 'mailto:'+MAIL_TO+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lastText).slice(0,1800)+encodeURIComponent('\n\n（內容過長時請改用「複製全部內容」貼入信件）');
     });
     document.getElementById('btnCopy').addEventListener('click', function(){
